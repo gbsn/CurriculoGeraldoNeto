@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 export default function Home() {
   return (
@@ -59,15 +60,17 @@ export default function Home() {
         {/* Números / prova rápida */}
         <section className="max-w-3xl mx-auto px-6 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            { n: "800", l: "pessoas lideradas, pico operacional" },
-            { n: "94%+", l: "KPIs sustentados no período" },
-            { n: "15", l: "anos entre operação, dev e gestão" },
+            { n: 800, suffix: "", l: "pessoas lideradas, pico operacional" },
+            { n: 94, suffix: "%+", l: "KPIs sustentados no período" },
+            { n: 15, suffix: "", l: "anos entre operação, dev e gestão" },
           ].map((stat) => (
             <div
               key={stat.l}
               className="glass rounded-2xl px-5 py-6 text-center"
             >
-              <p className="font-display text-3xl text-ink">{stat.n}</p>
+              <p className="font-display text-3xl text-ink">
+                <AnimatedCounter value={stat.n} suffix={stat.suffix} />
+              </p>
               <p className="font-mono text-xs text-ink-soft mt-2 uppercase tracking-wide">
                 {stat.l}
               </p>
