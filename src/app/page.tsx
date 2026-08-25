@@ -6,7 +6,7 @@ import { RubberBandGate } from "@/components/RubberBandGate";
 export default function Home() {
   return (
     <PageShell>
-      <RubberBandGate nextHref="/gestao">
+      <RubberBandGate nextHref="/tecnologia">
       <main className="pt-40 pb-32">
         {/* Masthead */}
         <section className="max-w-3xl mx-auto px-6 text-center border-b hairline pb-10 mb-16">

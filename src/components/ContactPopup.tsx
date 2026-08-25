@@ -181,14 +181,14 @@ export function ContactPopup({ progress }: { progress: number }) {
                   <motion.button
                     whileTap={{ scale: 0.97 }}
                     onClick={() => setPath("direct")}
-                    className="mt-2 text-left rounded-xl border hairline px-3 py-2.5 hover:bg-paper-raised/60 transition-colors"
+                    className="mt-2 text-left glass rounded-2xl px-4 py-3 hover:brightness-95 transition-[filter]"
                   >
                     Escrever uma mensagem por aqui
                   </motion.button>
                   <motion.button
                     whileTap={{ scale: 0.97 }}
                     onClick={() => setPath("request")}
-                    className="text-left rounded-xl border hairline px-3 py-2.5 hover:bg-paper-raised/60 transition-colors"
+                    className="text-left glass rounded-2xl px-4 py-3 hover:brightness-95 transition-[filter]"
                   >
                     Solicitar informações de contato
                   </motion.button>

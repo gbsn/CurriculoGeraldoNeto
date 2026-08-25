@@ -1,8 +1,10 @@
 import { PageShell } from "@/components/PageShell";
+import { RubberBandGate } from "@/components/RubberBandGate";
 
 export default function ExperienciasPage() {
   return (
     <PageShell>
+      <RubberBandGate prevHref="/gestao" nextHref="/sobre">
       <main className="pt-40 pb-32 min-h-screen">
         <section className="max-w-2xl mx-auto px-6 text-center">
           <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-3">
@@ -16,6 +18,7 @@ export default function ExperienciasPage() {
           </p>
         </section>
       </main>
+      </RubberBandGate>
     </PageShell>
   );
 }
