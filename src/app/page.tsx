@@ -1,10 +1,12 @@
 import { PageShell } from "@/components/PageShell";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TrailCard } from "@/components/TrailCard";
+import { RubberBandGate } from "@/components/RubberBandGate";
 
 export default function Home() {
   return (
     <PageShell>
+      <RubberBandGate nextHref="/gestao">
       <main className="pt-40 pb-32">
         {/* Masthead */}
         <section className="max-w-3xl mx-auto px-6 text-center border-b hairline pb-10 mb-16">
@@ -101,7 +103,7 @@ export default function Home() {
           <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-6 text-center">
             Continue a leitura
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <TrailCard
               href="/tecnologia"
               title="Tecnologia"
@@ -113,9 +115,16 @@ export default function Home() {
               description="Operações, liderança e os números que provam isso."
               delay={0.1}
             />
+            <TrailCard
+              href="/oquasi"
+              title="Fora do expediente"
+              description="Quem eu sou quando a câmera do trabalho desliga."
+              delay={0.2}
+            />
           </div>
         </section>
       </main>
+      </RubberBandGate>
     </PageShell>
   );
 }
