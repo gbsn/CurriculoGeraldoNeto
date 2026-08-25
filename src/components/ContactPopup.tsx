@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 const CONTACT_EMAIL = "contato@geraldoneto.dev"; // placeholder — ajustar depois
 
@@ -10,8 +11,9 @@ type Path = "direct" | "request" | null;
 const SPRING = { type: "spring", stiffness: 420, damping: 34, mass: 0.8 } as const;
 const SPRING_SOFT = { type: "spring", stiffness: 300, damping: 30 } as const;
 
-function todayLabel() {
-  return new Intl.DateTimeFormat("pt-BR", {
+function todayLabel(locale: string) {
+  const intlLocale = locale === "en" ? "en-US" : locale === "zh" ? "zh-CN" : "pt-BR";
+  return new Intl.DateTimeFormat(intlLocale, {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -75,6 +77,7 @@ function SpecularSweep() {
 }
 
 export function ContactPopup({ progress }: { progress: number }) {
+  const { t, lang } = useLanguage();
   const [expanded, setExpanded] = useState(false);
   const [path, setPath] = useState<Path>(null);
   const [requestEmail, setRequestEmail] = useState("");
@@ -120,7 +123,7 @@ export function ContactPopup({ progress }: { progress: number }) {
               animate={{ scale: [1, 1.3, 1] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
             />
-            Falar comigo
+            {t.contact.pillLabel}
           </motion.button>
         )}
 
@@ -137,12 +140,12 @@ export function ContactPopup({ progress }: { progress: number }) {
               layout
               className="flex items-center justify-between mb-4"
             >
-              <span className="font-display text-base text-ink">Vamos conversar</span>
+              <span className="font-display text-base text-ink">{t.contact.talk}</span>
               <motion.button
                 onClick={close}
                 whileTap={{ scale: 0.85, rotate: 90 }}
                 transition={SPRING}
-                aria-label="Fechar"
+                aria-label={t.contact.close}
                 className="text-ink-soft hover:text-ink"
               >
                 ✕
@@ -158,7 +161,7 @@ export function ContactPopup({ progress }: { progress: number }) {
                   transition={SPRING_SOFT}
                   className="text-ink-soft leading-relaxed"
                 >
-                  Recebido. Retorno o quanto antes pelo canal informado.
+                  {t.contact.sent}
                 </motion.p>
               ) : path === null ? (
                 <motion.div
@@ -170,7 +173,7 @@ export function ContactPopup({ progress }: { progress: number }) {
                   className="flex flex-col gap-3"
                 >
                   <p className="text-ink-soft leading-relaxed mb-1">
-                    Pode me escrever direto, ou pedir que eu te envie meus dados de contato.
+                    {t.contact.chooseIntro}
                   </p>
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
@@ -183,14 +186,14 @@ export function ContactPopup({ progress }: { progress: number }) {
                     onClick={() => setPath("direct")}
                     className="mt-2 text-left glass rounded-2xl px-4 py-3 hover:brightness-95 transition-[filter]"
                   >
-                    Escrever uma mensagem por aqui
+                    {t.contact.writeHere}
                   </motion.button>
                   <motion.button
                     whileTap={{ scale: 0.97 }}
                     onClick={() => setPath("request")}
                     className="text-left glass rounded-2xl px-4 py-3 hover:brightness-95 transition-[filter]"
                   >
-                    Solicitar informações de contato
+                    {t.contact.requestInfo}
                   </motion.button>
                 </motion.div>
               ) : path === "direct" ? (
@@ -204,29 +207,29 @@ export function ContactPopup({ progress }: { progress: number }) {
                   className="flex flex-col gap-3"
                 >
                   <label className="flex flex-col gap-1">
-                    <span className="text-xs text-ink-soft">Eu sou ou represento:</span>
+                    <span className="text-xs text-ink-soft">{t.contact.iAmLabel}</span>
                     <input
                       required
                       type="text"
                       className="rounded-lg border hairline bg-paper-raised/50 px-3 py-2 outline-none focus-visible:border-horizonte"
-                      placeholder="Nome / empresa / projeto"
+                      placeholder={t.contact.iAmPlaceholder}
                     />
                   </label>
 
                   <label className="flex flex-col gap-1">
-                    <span className="text-xs text-ink-soft">Me comunico em:</span>
+                    <span className="text-xs text-ink-soft">{t.contact.dateLabel}</span>
                     <span className="font-mono text-xs text-ink-soft/70 px-3 py-2 rounded-lg bg-paper-raised/30 select-none">
-                      {todayLabel()}
+                      {todayLabel(lang)}
                     </span>
                   </label>
 
                   <label className="flex flex-col gap-1">
-                    <span className="text-xs text-ink-soft">Mensagem</span>
+                    <span className="text-xs text-ink-soft">{t.contact.messageLabel}</span>
                     <textarea
                       required
                       rows={4}
                       className="rounded-lg border hairline bg-paper-raised/50 px-3 py-2 outline-none resize-none focus-visible:border-horizonte"
-                      placeholder="O que você quer tratar comigo"
+                      placeholder={t.contact.messagePlaceholder}
                     />
                   </label>
 
@@ -235,14 +238,14 @@ export function ContactPopup({ progress }: { progress: number }) {
                     type="submit"
                     className="mt-1 rounded-full bg-ink text-paper py-2.5 hover:opacity-90 transition-opacity"
                   >
-                    Enviar
+                    {t.contact.send}
                   </motion.button>
                   <button
                     type="button"
                     onClick={() => setPath(null)}
                     className="text-xs text-ink-soft hover:text-ink self-start"
                   >
-                    ← voltar
+                    {t.contact.back}
                   </button>
                 </motion.form>
               ) : (
@@ -256,7 +259,7 @@ export function ContactPopup({ progress }: { progress: number }) {
                   className="flex flex-col gap-3"
                 >
                   <p className="text-ink-soft leading-relaxed">
-                    Informo aqui seu e-mail e envio meus dados de contato junto com meu currículo em PDF.
+                    {t.contact.requestIntro}
                   </p>
                   <input
                     required
@@ -264,21 +267,21 @@ export function ContactPopup({ progress }: { progress: number }) {
                     value={requestEmail}
                     onChange={(e) => setRequestEmail(e.target.value)}
                     className="rounded-lg border hairline bg-paper-raised/50 px-3 py-2 outline-none focus-visible:border-horizonte"
-                    placeholder="seu@email.com"
+                    placeholder={t.contact.emailPlaceholder}
                   />
                   <motion.button
                     whileTap={{ scale: 0.97 }}
                     type="submit"
                     className="mt-1 rounded-full bg-ink text-paper py-2.5 hover:opacity-90 transition-opacity"
                   >
-                    Solicitar informações de contato
+                    {t.contact.requestSubmit}
                   </motion.button>
                   <button
                     type="button"
                     onClick={() => setPath(null)}
                     className="text-xs text-ink-soft hover:text-ink self-start"
                   >
-                    ← voltar
+                    {t.contact.back}
                   </button>
                 </motion.form>
               )}

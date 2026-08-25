@@ -4,32 +4,31 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
+import type { Locale } from "@/lib/translations";
 
-const NAV_ITEMS = [
-  { href: "/", label: "Início" },
-  { href: "/tecnologia", label: "Tecnologia" },
-  { href: "/gestao", label: "Gestão" },
-  { href: "/experiencias", label: "Experiências" },
-  { href: "/sobre", label: "Sobre" },
-];
-
-const LANGS = [
-  { code: "PT", label: "Português" },
-  { code: "EN", label: "English" },
-  { code: "中文", label: "中文" },
+const LANGS: { code: Locale; label: string }[] = [
+  { code: "pt", label: "PT" },
+  { code: "en", label: "EN" },
+  { code: "zh", label: "中文" },
 ];
 
 const SPRING = { type: "spring", stiffness: 420, damping: 34 } as const;
 
 export function Topbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lang, setLang] = useState("PT");
+  const { lang, setLang, t } = useLanguage();
   const pathname = usePathname();
 
+  const NAV_ITEMS = [
+    { href: "/tecnologia", label: t.nav.tecnologia },
+    { href: "/gestao", label: t.nav.gestao },
+    { href: "/experiencias", label: t.nav.experiencias },
+    { href: "/sobre", label: t.nav.sobre },
+  ];
+
   return (
-    <header
-      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl [transform:translateZ(0)] isolate"
-    >
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl">
       <motion.div
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -44,7 +43,7 @@ export function Topbar() {
         </Link>
 
         <ul className="hidden md:flex items-center gap-1 font-body text-sm text-ink-soft">
-          {NAV_ITEMS.slice(1).map((item) => {
+          {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;
             return (
               <li key={item.href} className="relative">
@@ -90,7 +89,7 @@ export function Topbar() {
                     className="absolute inset-0 rounded-full bg-ink -z-10"
                   />
                 )}
-                {l.code}
+                {l.label}
               </motion.button>
             ))}
           </div>
@@ -102,7 +101,7 @@ export function Topbar() {
             aria-label="Abrir menu"
             onClick={() => setMenuOpen((v) => !v)}
           >
-            {menuOpen ? "Fechar" : "Menu"}
+            {menuOpen ? "✕" : "☰"}
           </motion.button>
         </div>
       </nav>
@@ -116,7 +115,7 @@ export function Topbar() {
           className="glass mt-2 rounded-2xl px-4 py-4 md:hidden"
         >
           <ul className="flex flex-col gap-3 font-body text-sm text-ink-soft">
-            {NAV_ITEMS.slice(1).map((item) => (
+            {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -140,7 +139,7 @@ export function Topbar() {
                     : "text-ink-soft hover:text-ink"
                 }`}
               >
-                {l.code}
+                {l.label}
               </button>
             ))}
           </div>

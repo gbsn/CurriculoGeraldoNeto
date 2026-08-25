@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Serif_4, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Topbar } from "@/components/Topbar";
 import { PageTransition } from "@/components/PageTransition";
+import { LanguageProvider } from "@/components/LanguageProvider";
 import "./globals.css";
 
 const sourceSerif = Source_Serif_4({
@@ -34,8 +35,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${sourceSerif.variable} ${inter.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col paper-texture">
-        <Topbar />
-        <PageTransition>{children}</PageTransition>
+        <LanguageProvider>
+          <Topbar />
+          <PageTransition>{children}</PageTransition>
+        </LanguageProvider>
       </body>
     </html>
   );
