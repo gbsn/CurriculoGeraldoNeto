@@ -48,7 +48,7 @@ export function AnimatedCounter({
 
   return (
     <motion.span ref={ref} className="tabular-nums">
-      {display}
+      {display.toLocaleString("pt-BR")}
       {suffix}
     </motion.span>
   );

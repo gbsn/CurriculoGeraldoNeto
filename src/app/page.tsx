@@ -80,7 +80,7 @@ export default function Home() {
         {/* Números / prova rápida */}
         <section className="max-w-3xl mx-auto px-6 mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            { n: 800, suffix: "", l: "pessoas lideradas, pico operacional" },
+            { n: 1400, suffix: "", l: "pessoas lideradas, pico operacional" },
             { n: 94, suffix: "%+", l: "KPIs sustentados no período" },
             { n: 15, suffix: "", l: "anos entre operação, dev e gestão" },
           ].map((stat) => (
