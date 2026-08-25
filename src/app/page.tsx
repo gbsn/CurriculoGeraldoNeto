@@ -1,5 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { TrailCard } from "@/components/TrailCard";
 
 export default function Home() {
   return (
@@ -13,47 +14,64 @@ export default function Home() {
           <h1 className="font-display text-5xl sm:text-6xl leading-[1.05] text-ink">
             Geraldo Neto
           </h1>
-          <p className="font-body text-lg text-ink-soft mt-4 max-w-xl mx-auto">
-            Tecnologia com disciplina de gestão. Gestão com raciocínio de
-            economista. Uma carreira construída na prática, não na teoria.
+          <p className="font-display text-2xl sm:text-3xl text-ink mt-5">
+            Conectando pessoas reais a tecnologia eficaz.
+          </p>
+          <p className="font-body text-base text-ink-soft mt-3 max-w-xl mx-auto">
+            Disciplina, raciocínio econômico e gestão a serviço de processos
+            que funcionam.
           </p>
         </section>
 
         {/* Abertura narrativa */}
         <section className="max-w-2xl mx-auto px-6 flex flex-col gap-6 font-body text-lg leading-relaxed text-ink">
+          <p className="font-display italic text-xl text-ink-soft">
+            Antes dos cargos, dos números, dos KPIs — teve um começo. Vem
+            comigo.
+          </p>
+
           <p>
             Em 2011, antes de qualquer cargo, havia uma ONG e um problema
-            simples: adolescentes sem acesso a tecnologia. Não havia
-            orçamento, nem estrutura — havia código, vontade e tarde livre.
-            Foi ali que aprendi que sistema bom é aquele que resolve o
-            problema de quem está na sua frente, não o que fica bonito num
-            slide.
+            simples: adolescentes com problemas de socialização. Não havia
+            orçamento, nem estrutura — havia muita vontade de agir e ajudar,
+            e tarde livre. Foi ali que aprendi que sistema bom é aquele que
+            resolve o problema de quem está na sua frente, não o que fica
+            bonito num slide ou num site. Não existia IA acessível naquele
+            momento.
           </p>
 
           <p>
             Os anos seguintes levaram essa lógica para dentro de operações
-            grandes: da linha de frente ao comando de equipes de até{" "}
-            <strong className="font-display font-normal">800 pessoas</strong>,
-            sustentando indicadores de desempenho acima de{" "}
-            <strong className="font-display font-normal">94%</strong>. Não é
-            o mesmo tipo de sistema — mas é o mesmo tipo de problema:
-            pessoas, processo e informação que precisam se encontrar sem
-            fricção.
+            grandes e internacionais: da linha de frente ao comando de
+            equipes de{" "}
+            <strong className="font-display font-normal">
+              30 a até 1.400 pessoas
+            </strong>
+            , sustentando indicadores de desempenho acima de{" "}
+            <strong className="font-display font-normal">94%</strong>, tudo
+            com base no Lean Six Sigma. Não é o mesmo tipo de sistema — mas é
+            o mesmo tipo de problema: processo e informação que precisam se
+            encontrar sem fricção.
           </p>
 
-          <blockquote className="border-l-2 border-sage pl-5 my-4 font-display text-2xl leading-snug text-ink">
-            Sistema bom é aquele que resolve o problema de quem está na sua
-            frente.
+          <blockquote className="relative border-l-2 border-sage pl-8 my-6 font-display text-2xl leading-snug text-ink">
+            <span
+              aria-hidden
+              className="absolute -left-1 -top-8 font-display text-7xl leading-none text-sage/70 select-none"
+            >
+              &ldquo;
+            </span>
+            A Tecnologia deve servir as Pessoas e solucionar problemas reais...
           </blockquote>
 
           <p>
-            Formado em Análise de Sistemas e com passagem por Ciências
-            Econômicas, hoje reúno as duas coisas onde raramente coexistem:
-            profundidade técnica e leitura de negócio. É essa combinação que
-            está indo para Inteligência Artificial e Análise de Dados — não
-            como modismo, mas como continuação natural de uma carreira que
-            sempre tratou tecnologia como ferramenta de gente, não como fim
-            em si.
+            Formado em Análise de Sistemas e tendo estudado Ciências
+            Econômicas a fundo, hoje reúno as duas coisas onde raramente
+            coexistem, mas deveriam se completar: profundidade técnica e
+            leitura de negócio. É essa combinação que está indo para
+            Inteligência Artificial e Análise de Dados — não como modismo,
+            mas como continuação natural de uma carreira que sempre tratou
+            tecnologia como ferramenta de gente, não como fim em si.
           </p>
         </section>
 
@@ -84,24 +102,17 @@ export default function Home() {
             Continue a leitura
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <a
+            <TrailCard
               href="/tecnologia"
-              className="rounded-2xl border hairline p-6 hover:bg-paper-raised/60 transition-colors"
-            >
-              <p className="font-display text-xl text-ink mb-1">Tecnologia</p>
-              <p className="font-body text-sm text-ink-soft">
-                Formação, stack e o portfólio por trás do código.
-              </p>
-            </a>
-            <a
+              title="Tecnologia"
+              description="Formação, stack e o portfólio por trás do código."
+            />
+            <TrailCard
               href="/gestao"
-              className="rounded-2xl border hairline p-6 hover:bg-paper-raised/60 transition-colors"
-            >
-              <p className="font-display text-xl text-ink mb-1">Gestão</p>
-              <p className="font-body text-sm text-ink-soft">
-                Operações, liderança e os números que provam isso.
-              </p>
-            </a>
+              title="Gestão"
+              description="Operações, liderança e os números que provam isso."
+              delay={0.1}
+            />
           </div>
         </section>
       </main>
