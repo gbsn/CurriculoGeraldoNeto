@@ -112,7 +112,7 @@ export function ContactPopup({ progress }: { progress: number }) {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.94 }}
             transition={SPRING}
-            className="glass relative overflow-hidden rounded-full pl-4 pr-5 py-2.5 flex items-center gap-2 text-sm font-body text-ink"
+            className="glass relative overflow-hidden rounded-full pl-4 pr-5 py-2.5 flex items-center gap-2 text-sm font-body text-ink [transform:translateZ(0)] isolate"
           >
             <SpecularSweep />
             <motion.span
@@ -129,7 +129,7 @@ export function ContactPopup({ progress }: { progress: number }) {
             key="card"
             layoutId="contact-bubble"
             transition={SPRING}
-            className="glass relative overflow-hidden rounded-[28px] w-[min(360px,calc(100vw-3rem))] p-5 font-body text-sm"
+            className="glass relative overflow-hidden rounded-[28px] w-[min(360px,calc(100vw-3rem))] p-5 font-body text-sm [transform:translateZ(0)] isolate"
           >
             <SpecularSweep />
 

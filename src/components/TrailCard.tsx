@@ -27,7 +27,7 @@ export function TrailCard({
     >
       <Link href={href} className="block group">
         <motion.div
-          className="glass rounded-2xl p-6"
+          className="glass rounded-2xl p-6 [transform:translateZ(0)] isolate"
           initial={false}
           whileHover={{
             boxShadow:
