@@ -110,6 +110,9 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **0ddf618** — fix: vídeo volta pra object-cover (object-contain causava
+  letterbox preto gigante no mobile, vídeo é landscape); painel do
+  título compactado no mobile (ocupava espaço demais, escondia a cena).
 - **6198950** — fix: pontos de tema e raios da Sobre empurrados pra baixo
   (hotspotTop +12/+14 pontos percentuais) — sobrepunham o painel do
   título antes.
