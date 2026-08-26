@@ -136,20 +136,6 @@ export const translations: Record<Locale, Dictionary> = {
         "Aqui, os cargos e os números falam por si. Uma trajetória construída de dentro da operação para o comando dela.",
       roles: [
         {
-          title: "Agente de Vendas Pessoa Física — Linhas Móveis e Fixas",
-          company: "Oi Telecom",
-          period: "2008",
-          location: "Natal/RN",
-          desc: "Vendas externas e internas de linhas móveis e fixas (Oi Conta Total). Recordista em vendas durante três meses seguidos, promovido a Vendedor de Linhas Empresariais.",
-        },
-        {
-          title: "Agente de Vendas Pessoa Jurídica — Linhas Móveis",
-          company: "Oi Telecom",
-          period: "2009",
-          location: "Natal/RN",
-          desc: "Prospecção, gestão e negociação com portfólio abrangente de produtos B2B, planos focados na necessidade do cliente, em parceria com equipes de backoffice e pós-venda. Destaque por melhor atendimento nos últimos dois meses do contrato.",
-        },
-        {
           title: "Supervisor de Operações Bilíngue",
           company: "Teleperformance",
           period: "nov 2016 – jun 2018",
@@ -179,11 +165,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
       certsTitle: "Certificações",
-      certs: [
-        "SCRUM Master",
-        "Six Sigma Yellow Belt",
-        "Especialista em Vendas Estratégicas — Oi/Vivo/Claro",
-      ],
+      certs: ["SCRUM Master", "Six Sigma Yellow Belt"],
       statPeople: "pessoas lideradas, pico operacional",
       statKpi: "KPIs sustentados no período",
       statYears: "anos na Teleperformance, do operacional à coordenação",
@@ -274,20 +256,6 @@ export const translations: Record<Locale, Dictionary> = {
         "Here, the roles and the numbers speak for themselves. A path built from inside the operation to leading it.",
       roles: [
         {
-          title: "Personal Lines Sales Agent — Mobile & Landline",
-          company: "Oi Telecom",
-          period: "2008",
-          location: "Natal, Brazil",
-          desc: "Handled inbound and outbound sales of mobile and landline plans (Oi Conta Total). Top seller for three consecutive months, promoted to Business Lines Sales Rep.",
-        },
-        {
-          title: "Business Sales Agent — Mobile Lines (B2B)",
-          company: "Oi Telecom",
-          period: "2009",
-          location: "Natal, Brazil",
-          desc: "Prospected, managed, and negotiated a broad B2B product portfolio tailored to client needs, working alongside backoffice and after-sales teams. Recognized for best service in the contract's final two months.",
-        },
-        {
           title: "Bilingual Operations Supervisor",
           company: "Teleperformance",
           period: "Nov 2016 – Jun 2018",
@@ -317,11 +285,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
       certsTitle: "Certifications",
-      certs: [
-        "SCRUM Master",
-        "Six Sigma Yellow Belt",
-        "Strategic Sales Specialist — Oi/Vivo/Claro",
-      ],
+      certs: ["SCRUM Master", "Six Sigma Yellow Belt"],
       statPeople: "people led, peak operation",
       statKpi: "KPIs sustained over the period",
       statYears: "years at Teleperformance, from the floor to coordination",
@@ -409,20 +373,6 @@ export const translations: Record<Locale, Dictionary> = {
       intro: "在这里，职位与数据本身就是最好的证明。一段从运营一线走向统筹指挥的历程。",
       roles: [
         {
-          title: "个人客户销售专员 —— 移动与固定线路",
-          company: "Oi Telecom",
-          period: "2008年",
-          location: "巴西纳塔尔",
-          desc: "负责移动和固定电话线路（Oi Conta Total）的内外销售。连续三个月蝉联销售冠军，晋升为企业线路销售员。",
-        },
-        {
-          title: "法人客户销售专员 —— 移动线路（B2B）",
-          company: "Oi Telecom",
-          period: "2009年",
-          location: "巴西纳塔尔",
-          desc: "负责拓展、管理与谈判广泛的B2B产品组合，根据客户需求提供定制方案，并与后勤及售后团队协作。因合同最后两个月的最佳服务表现而获得认可。",
-        },
-        {
           title: "双语运营主管",
           company: "Teleperformance",
           period: "2016年11月 – 2018年6月",
@@ -452,11 +402,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
       certsTitle: "认证资质",
-      certs: [
-        "敏捷 Scrum Master 认证",
-        "六西格玛黄带认证",
-        "战略销售专家认证 —— Oi/Vivo/Claro",
-      ],
+      certs: ["敏捷 Scrum Master 认证", "六西格玛黄带认证"],
       statPeople: "巅峰时期带领的团队人数",
       statKpi: "期间维持的绩效指标",
       statYears: "在Teleperformance从一线到统筹协调的从业年限",
