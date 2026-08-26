@@ -64,6 +64,21 @@ export interface Dictionary {
       desc: string;
     }[];
   };
+  tecnologiaPage: {
+    eyebrow: string;
+    headline: string;
+    subtitle: string;
+    formacaoTitle: string;
+    formacaoText: string;
+    portfolioTitle: string;
+    privateLabel: string;
+    projects: {
+      name: string;
+      description: string;
+      tags: string[];
+      links: { label: string; url: string }[];
+    }[];
+  };
   contact: {
     talk: string;
     pillLabel: string;
@@ -239,6 +254,75 @@ export const translations: Record<Locale, Dictionary> = {
           period: "jun 2015 – jun 2016",
           location: "Avenida Búzios, 9034",
           desc: "Desenvolvedor chefe de projetos web, em PHP e MySQL, usando BrainStorm IDE e phpMyAdmin. SEO com Google Tools, especialista em Google Sheets. Desenvolvimento de sistemas financeiros generalistas embarcados em websites, usando Scrum.",
+        },
+      ],
+    },
+    tecnologiaPage: {
+      eyebrow: "Edição pessoal · Tecnologia",
+      headline: "Tecnologia que resolve, não que só impressiona.",
+      subtitle:
+        "Formação em Análise de Sistemas, raciocínio de Economia, e uma pilha de projetos pra provar.",
+      formacaoTitle: "Formação",
+      formacaoText:
+        "Formado em Análise de Sistemas, com passagem por Ciências Econômicas — a base técnica vem de um lado, a leitura de negócio do outro. O resto veio construindo: prática, projetos, e a teimosia de aprender fazendo.",
+      portfolioTitle: "Portfólio",
+      privateLabel: "repo privado",
+      projects: [
+        {
+          name: "CurriculoGeraldoNeto",
+          description:
+            "Este currículo. Construído como projeto SCRUM real, com IA como parceira de desenvolvimento, do zero ao deploy.",
+          tags: ["Next.js", "TypeScript", "Vercel"],
+          links: [
+            { label: "GitHub", url: "https://github.com/gbsn/CurriculoGeraldoNeto" },
+          ],
+        },
+        {
+          name: "UZIr",
+          description:
+            "Mod de contagem de mortes para Project Zomboid, pensado pra integrar partidas solo e multiplayer numa liga permanente online. Três peças: o mod do jogo, o serviço-ponte de dados, e o app web de ligas e registros (privado).",
+          tags: ["Lua", "Go", "TypeScript"],
+          links: [
+            { label: "UZIr", url: "https://github.com/gbsn/UZIr" },
+            { label: "UZIr-Companion", url: "https://github.com/gbsn/UZIr-Companion" },
+          ],
+        },
+        {
+          name: "QuasimoDOVS-Clock",
+          description:
+            "Mod de HUD para Vintage Story: painel de informações com cores sazonais, mostrando relógio, data, estação e temperatura. Evolução do meu primeiro mod do jogo.",
+          tags: ["C#"],
+          links: [
+            { label: "GitHub", url: "https://github.com/gbsn/QuasimoDOVS-Clock" },
+          ],
+        },
+        {
+          name: "NowApocalypse",
+          description:
+            "Jogo idle interativo: você é o líder de uma horda zumbi que cresce de acordo com suas decisões. Sátira corporativa por trás do caos.",
+          tags: ["Vue"],
+          links: [],
+        },
+        {
+          name: "moderaIA",
+          description:
+            "Agente de IA pra moderar lives — pensado pra criadores de conteúdo que precisam de outro par de olhos (e ouvidos) durante a transmissão.",
+          tags: ["Python"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/moderaIA" }],
+        },
+        {
+          name: "ThePHPLogin",
+          description:
+            "Rotina de login simples, feita pra mostrar nível de habilidade em PHP legado — direto ao ponto.",
+          tags: ["PHP", "HTML"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/ThePHPLogin" }],
+        },
+        {
+          name: "AllVueJs",
+          description:
+            "Projeto de teste técnico contratado por uma empresa em processo seletivo de freelancers. Prova de trabalho sob prazo real.",
+          tags: ["Vue"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/AllVueJs" }],
         },
       ],
     },
@@ -421,6 +505,75 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
     },
+    tecnologiaPage: {
+      eyebrow: "Personal edition · Technology",
+      headline: "Technology that solves, not just impresses.",
+      subtitle:
+        "A degree in Systems Analysis, an Economics mindset, and a stack of projects to back it up.",
+      formacaoTitle: "Background",
+      formacaoText:
+        "Trained in Systems Analysis, with a background in Economics — technical foundation on one side, business thinking on the other. Everything else came from building: practice, projects, and the stubbornness to learn by doing.",
+      portfolioTitle: "Portfolio",
+      privateLabel: "private repo",
+      projects: [
+        {
+          name: "CurriculoGeraldoNeto",
+          description:
+            "This very résumé. Built as a real Scrum project, with AI as a development partner, from zero to deployed.",
+          tags: ["Next.js", "TypeScript", "Vercel"],
+          links: [
+            { label: "GitHub", url: "https://github.com/gbsn/CurriculoGeraldoNeto" },
+          ],
+        },
+        {
+          name: "UZIr",
+          description:
+            "A kill-count mod for Project Zomboid, built to bring solo and multiplayer runs into one permanent online league. Three pieces: the game mod, the data-bridge service, and the web league/registry app (private).",
+          tags: ["Lua", "Go", "TypeScript"],
+          links: [
+            { label: "UZIr", url: "https://github.com/gbsn/UZIr" },
+            { label: "UZIr-Companion", url: "https://github.com/gbsn/UZIr-Companion" },
+          ],
+        },
+        {
+          name: "QuasimoDOVS-Clock",
+          description:
+            "A HUD mod for Vintage Story: an info panel with season-based coloring showing clock, date, season, and temperature. An evolution of my first mod for the game.",
+          tags: ["C#"],
+          links: [
+            { label: "GitHub", url: "https://github.com/gbsn/QuasimoDOVS-Clock" },
+          ],
+        },
+        {
+          name: "NowApocalypse",
+          description:
+            "An interactive idle game: you're the leader of a zombie horde that grows based on your decisions. Dark corporate satire underneath the chaos.",
+          tags: ["Vue"],
+          links: [],
+        },
+        {
+          name: "moderaIA",
+          description:
+            "An AI agent for moderating livestreams — built for creators who need an extra pair of eyes (and ears) during a broadcast.",
+          tags: ["Python"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/moderaIA" }],
+        },
+        {
+          name: "ThePHPLogin",
+          description:
+            "A simple login routine, built to showcase legacy PHP skill level — straightforward and to the point.",
+          tags: ["PHP", "HTML"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/ThePHPLogin" }],
+        },
+        {
+          name: "AllVueJs",
+          description:
+            "A technical test project commissioned by a company during a freelancer hiring process. Proof of work under a real deadline.",
+          tags: ["Vue"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/AllVueJs" }],
+        },
+      ],
+    },
     contact: {
       talk: "Let's talk",
       pillLabel: "Get in touch",
@@ -593,6 +746,74 @@ export const translations: Record<Locale, Dictionary> = {
           period: "2015年6月 – 2016年6月",
           location: "Avenida Búzios, 9034",
           desc: "使用PHP和MySQL担任项目主开发，工具为BrainStorm IDE与phpMyAdmin。负责Google工具SEO优化，精通Google表格。基于Scrum方法开发嵌入网站的通用财务系统。",
+        },
+      ],
+    },
+    tecnologiaPage: {
+      eyebrow: "个人版 · 技术",
+      headline: "技术应解决问题，而非仅仅令人印象深刻。",
+      subtitle: "系统分析专业背景，经济学思维，再加上一系列项目作为证明。",
+      formacaoTitle: "教育背景",
+      formacaoText:
+        "毕业于系统分析专业，并有经济学的学习背景 —— 技术基础来自一方，商业洞察来自另一方。其余的一切都是靠实践、项目，以及在实践中学习的执着积累而成。",
+      portfolioTitle: "作品集",
+      privateLabel: "私有仓库",
+      projects: [
+        {
+          name: "CurriculoGeraldoNeto",
+          description:
+            "这份简历本身。以真实的Scrum项目形式构建，AI作为开发伙伴，从零到上线全程参与。",
+          tags: ["Next.js", "TypeScript", "Vercel"],
+          links: [
+            { label: "GitHub", url: "https://github.com/gbsn/CurriculoGeraldoNeto" },
+          ],
+        },
+        {
+          name: "UZIr",
+          description:
+            "一个为《Project Zomboid》制作的击杀计数模组，旨在将单人与多人游戏整合进一个永久性的在线联赛系统。由三部分组成：游戏模组本身、数据桥接服务，以及联赛与记录的网页应用（私有）。",
+          tags: ["Lua", "Go", "TypeScript"],
+          links: [
+            { label: "UZIr", url: "https://github.com/gbsn/UZIr" },
+            { label: "UZIr-Companion", url: "https://github.com/gbsn/UZIr-Companion" },
+          ],
+        },
+        {
+          name: "QuasimoDOVS-Clock",
+          description:
+            "为《Vintage Story》制作的HUD模组：一个随季节变化配色的信息面板，显示时钟、日期、季节与温度。是我第一个游戏模组的进化版本。",
+          tags: ["C#"],
+          links: [
+            { label: "GitHub", url: "https://github.com/gbsn/QuasimoDOVS-Clock" },
+          ],
+        },
+        {
+          name: "NowApocalypse",
+          description:
+            "一款互动放置类游戏：你是一支僵尸大军的首领，军队会根据你的决策不断壮大。混乱背后藏着企业讽刺。",
+          tags: ["Vue"],
+          links: [],
+        },
+        {
+          name: "moderaIA",
+          description:
+            "一个用于直播审核的AI代理 —— 为需要在直播过程中多一双眼睛（和耳朵）的内容创作者而设计。",
+          tags: ["Python"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/moderaIA" }],
+        },
+        {
+          name: "ThePHPLogin",
+          description:
+            "一个简单的登录流程，用于展示传统PHP的技能水平 —— 直接、简明。",
+          tags: ["PHP", "HTML"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/ThePHPLogin" }],
+        },
+        {
+          name: "AllVueJs",
+          description:
+            "受聘为一家公司自由职业者招募流程中的技术测试项目。是在真实截止日期下完成工作的证明。",
+          tags: ["Vue"],
+          links: [{ label: "GitHub", url: "https://github.com/gbsn/AllVueJs" }],
         },
       ],
     },

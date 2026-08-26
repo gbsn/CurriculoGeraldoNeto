@@ -4,19 +4,22 @@ const STACK = [
   "Next.js",
   "TypeScript",
   "React",
+  "Vue",
   "PHP",
+  "Python",
+  "C#",
+  "Lua",
+  "Go",
   "MySQL",
   "Tailwind CSS",
-  "Python",
   "SCRUM",
   "Vercel",
   "Google AI Studio",
 ];
 
 /**
- * Faixa rolando infinitamente com o stack técnico — placeholder pra
- * validação de conceito. Lista final entra no Sprint 2, com o
- * conteúdo real da página de Tecnologia.
+ * Faixa rolando infinitamente com o stack técnico real, baseado
+ * nos repositórios e projetos do usuário.
  */
 export function TechMarquee() {
   const items = [...STACK, ...STACK];
