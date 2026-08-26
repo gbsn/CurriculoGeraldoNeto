@@ -3,6 +3,7 @@
 import { PageShell } from "@/components/PageShell";
 import { TechMarquee } from "@/components/TechMarquee";
 import { RubberBandGate } from "@/components/RubberBandGate";
+import { CodeBackdrop } from "@/components/CodeBackdrop";
 import { useLanguage } from "@/components/LanguageProvider";
 import { motion } from "motion/react";
 
@@ -13,28 +14,34 @@ export default function TecnologiaPage() {
   return (
     <PageShell>
       <RubberBandGate prevHref="/" nextHref="/gestao">
-        <main className="pt-40 pb-32">
+        <main className="pt-40 pb-32 relative">
+          <CodeBackdrop />
+
           {/* Masthead */}
-          <section className="max-w-3xl mx-auto px-6 text-center border-b hairline pb-10 mb-14">
-            <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-3">
-              {p.eyebrow}
-            </p>
-            <h1 className="font-display text-4xl sm:text-5xl leading-[1.1] text-ink">
-              {p.headline}
-            </h1>
-            <p className="font-body text-base text-ink-soft mt-4 max-w-xl mx-auto">
-              {p.subtitle}
-            </p>
+          <section className="max-w-3xl mx-auto px-6 mb-14">
+            <div className="glass rounded-3xl px-8 py-10 text-center [transform:translateZ(0)] isolate">
+              <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-3">
+                {p.eyebrow}
+              </p>
+              <h1 className="font-display text-4xl sm:text-5xl leading-[1.1] text-ink">
+                {p.headline}
+              </h1>
+              <p className="font-body text-base text-ink-soft mt-4 max-w-xl mx-auto">
+                {p.subtitle}
+              </p>
+            </div>
           </section>
 
           {/* Formação */}
           <section className="max-w-2xl mx-auto px-6">
-            <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-3 text-center">
-              {p.formacaoTitle}
-            </p>
-            <p className="font-body text-lg leading-relaxed text-ink text-center">
-              {p.formacaoText}
-            </p>
+            <div className="glass rounded-3xl px-8 py-8 [transform:translateZ(0)] isolate">
+              <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-3 text-center">
+                {p.formacaoTitle}
+              </p>
+              <p className="font-body text-lg leading-relaxed text-ink text-center">
+                {p.formacaoText}
+              </p>
+            </div>
           </section>
 
           {/* Stack rolando */}
@@ -60,7 +67,7 @@ export default function TecnologiaPage() {
                     damping: 24,
                     delay: (i % 2) * 0.08,
                   }}
-                  className="glass rounded-2xl p-6 flex flex-col"
+                  className="glass rounded-2xl p-6 flex flex-col [transform:translateZ(0)] isolate"
                 >
                   <h2 className="font-display text-xl text-ink mb-2">
                     {project.name}

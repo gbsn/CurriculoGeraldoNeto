@@ -126,3 +126,36 @@ body {
     animation: none;
   }
 }
+
+@keyframes code-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes code-drift-reverse {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-code-drift {
+  animation: code-drift 90s linear infinite;
+}
+
+.animate-code-drift-reverse {
+  animation: code-drift-reverse 110s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-code-drift,
+  .animate-code-drift-reverse {
+    animation: none;
+  }
+}

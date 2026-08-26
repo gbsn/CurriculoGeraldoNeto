@@ -30,7 +30,7 @@ export function TechMarquee() {
         {items.map((tech, i) => (
           <span
             key={`${tech}-${i}`}
-            className="glass rounded-full px-4 py-1.5 font-mono text-xs text-ink-soft whitespace-nowrap"
+            className="glass rounded-full px-4 py-1.5 font-mono text-xs text-ink-soft whitespace-nowrap [transform:translateZ(0)] isolate"
           >
             {tech}
           </span>
