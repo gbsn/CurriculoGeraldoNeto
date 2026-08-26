@@ -3,10 +3,10 @@
 import { PageShell } from "@/components/PageShell";
 import { RubberBandGate } from "@/components/RubberBandGate";
 import { useLanguage } from "@/components/LanguageProvider";
-import { MindScape } from "@/components/MindScape";
+import { BrainScape } from "@/components/BrainScape";
 
 export default function SobrePage() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const s = t.sobrePage;
 
   return (
@@ -26,7 +26,7 @@ export default function SobrePage() {
           </section>
 
           <section className="max-w-4xl mx-auto px-4 sm:px-6">
-            <MindScape themes={s.themes} lang={lang} />
+            <BrainScape themes={s.themes} />
           </section>
         </main>
       </RubberBandGate>
