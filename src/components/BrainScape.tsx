@@ -17,13 +17,13 @@ type Ray = {
 
 // Raios entrando por cima, esquerda e direita — como ideias entrando na cabeça.
 const RAYS: Ray[] = [
-  { top: "-15%", left: "8%", width: "90px", height: "70%", rotate: 18, hotspotTop: "28%", hotspotLeft: "20%" },
-  { top: "-15%", left: "38%", width: "70px", height: "75%", rotate: -6, hotspotTop: "22%", hotspotLeft: "42%" },
-  { top: "-15%", left: "68%", width: "80px", height: "70%", rotate: -16, hotspotTop: "30%", hotspotLeft: "66%" },
-  { top: "10%", left: "-15%", width: "60px", height: "90%", rotate: 65, hotspotTop: "48%", hotspotLeft: "16%" },
-  { top: "5%", left: "95%", width: "60px", height: "90%", rotate: -65, hotspotTop: "45%", hotspotLeft: "82%" },
-  { top: "40%", left: "-10%", width: "50px", height: "80%", rotate: 72, hotspotTop: "68%", hotspotLeft: "28%" },
-  { top: "35%", left: "98%", width: "50px", height: "80%", rotate: -72, hotspotTop: "72%", hotspotLeft: "74%" },
+  { top: "-15%", left: "8%", width: "140px", height: "80%", rotate: 18, hotspotTop: "28%", hotspotLeft: "20%" },
+  { top: "-15%", left: "38%", width: "110px", height: "85%", rotate: -6, hotspotTop: "22%", hotspotLeft: "42%" },
+  { top: "-15%", left: "68%", width: "120px", height: "80%", rotate: -16, hotspotTop: "30%", hotspotLeft: "66%" },
+  { top: "10%", left: "-15%", width: "100px", height: "95%", rotate: 65, hotspotTop: "48%", hotspotLeft: "16%" },
+  { top: "5%", left: "92%", width: "100px", height: "95%", rotate: -65, hotspotTop: "45%", hotspotLeft: "82%" },
+  { top: "40%", left: "-12%", width: "90px", height: "85%", rotate: 72, hotspotTop: "68%", hotspotLeft: "28%" },
+  { top: "35%", left: "96%", width: "90px", height: "85%", rotate: -72, hotspotTop: "72%", hotspotLeft: "74%" },
 ];
 
 export function BrainScape({ themes }: { themes: Theme[] }) {
@@ -34,7 +34,7 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
 
   return (
     <div
-      className="relative min-h-[75vh] sm:min-h-[90vh] rounded-3xl overflow-hidden"
+      className="absolute inset-0 overflow-hidden"
       style={{ backgroundColor: "#050507" }}
     >
       {/* Cérebro em vídeo, quase invisível, dando o ar de mistério */}
@@ -49,36 +49,65 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
         <source src="/media/cerebro-cerebrando.mp4" type="video/mp4" />
       </video>
 
-      {/* Raios de luz entrando por cima e pelos lados */}
-      {RAYS.map((ray, i) => (
-        <div
-          key={i}
-          aria-hidden
-          className="absolute pointer-events-none"
-          style={{
-            top: ray.top,
-            left: ray.left,
-            width: ray.width,
-            height: ray.height,
-            background:
-              "linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.04) 55%, transparent 85%)",
-            transform: `rotate(${ray.rotate}deg)`,
-            transformOrigin: "top center",
-            filter: "blur(10px)",
-            mixBlendMode: "screen",
-          }}
-        />
-      ))}
+      {/* Raios de luz: quase invisíveis por padrão, clareiam feito amanhecer quando o tema correspondente é ativado */}
+      {themes.map((theme, i) => {
+        const ray = RAYS[i % RAYS.length];
+        const lit = activeId === theme.id;
+        return (
+          <motion.div
+            key={`ray-${theme.id}`}
+            aria-hidden
+            className="absolute pointer-events-none overflow-hidden"
+            style={{
+              top: ray.top,
+              left: ray.left,
+              width: ray.width,
+              height: ray.height,
+              transform: `rotate(${ray.rotate}deg)`,
+              transformOrigin: "top center",
+              filter: "blur(14px)",
+              mixBlendMode: "screen",
+            }}
+            animate={{ opacity: lit ? 1 : 0.05 }}
+            transition={{ duration: lit ? 0.5 : 0.9, ease: "easeOut" }}
+          >
+            <div
+              className="w-full h-full"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(255,244,214,0.55), rgba(255,244,214,0.08) 55%, transparent 85%)",
+              }}
+            />
+            {/* Varredura: uma faixa de luz mais forte desce pelo raio ao acender */}
+            <AnimatePresence>
+              {lit && (
+                <motion.div
+                  key="sweep"
+                  className="absolute inset-x-0"
+                  style={{
+                    height: "40%",
+                    background:
+                      "linear-gradient(180deg, transparent, rgba(255,250,230,0.9), transparent)",
+                  }}
+                  initial={{ top: "-40%" }}
+                  animate={{ top: "100%" }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                />
+              )}
+            </AnimatePresence>
+          </motion.div>
+        );
+      })}
 
       {/* Vinheta pra não iluminar tudo */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at 50% 40%, transparent 20%, rgba(0,0,0,0.65) 100%)",
+          background: "radial-gradient(ellipse at 50% 40%, transparent 15%, rgba(0,0,0,0.7) 100%)",
         }}
       />
 
-      {/* Pontos de tema, sobre os raios */}
+      {/* Pontos de tema */}
       {themes.map((theme, i) => {
         const ray = RAYS[i % RAYS.length];
         return (
@@ -99,16 +128,16 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
               <motion.span
                 className="block rounded-full"
                 style={{
-                  width: 12,
-                  height: 12,
-                  background: "radial-gradient(circle, #fff 0%, #e8dcc8 60%, transparent 100%)",
-                  boxShadow: "0 0 20px 6px rgba(255,241,214,0.5)",
+                  width: 14,
+                  height: 14,
+                  background: "radial-gradient(circle, #fff 0%, #fff1d6 60%, transparent 100%)",
+                  boxShadow: "0 0 24px 8px rgba(255,241,214,0.55)",
                 }}
                 animate={{ opacity: [0.65, 1, 0.65], scale: [1, 1.3, 1] }}
                 transition={{ duration: 2.4 + (i % 3) * 0.5, repeat: Infinity, ease: "easeInOut" }}
-                whileHover={{ scale: 1.7 }}
+                whileHover={{ scale: 1.8 }}
               />
-              <span className="font-mono text-[11px] text-white/75 whitespace-nowrap">
+              <span className="font-mono text-xs text-white/80 whitespace-nowrap drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                 {theme.label}
               </span>
             </button>
