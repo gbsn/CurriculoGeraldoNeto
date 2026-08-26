@@ -110,6 +110,9 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **6198950** — fix: pontos de tema e raios da Sobre empurrados pra baixo
+  (hotspotTop +12/+14 pontos percentuais) — sobrepunham o painel do
+  título antes.
 - **3b4c81a** — fix: vídeo do cérebro invisível no mobile (object-contain
   + sem blend mode); painel de tema vira portal fixo na base (antes
   ancorado por ponto, estourava a tela perto das bordas); overflow-x
