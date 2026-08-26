@@ -17,14 +17,15 @@ type Ray = {
 };
 
 // Raios entrando por cima, esquerda e direita — como ideias entrando na cabeça.
+// hotspotTop/height deslocados pra baixo pra não brigar com o painel do título.
 const RAYS: Ray[] = [
-  { top: "-15%", left: "8%", width: "140px", height: "80%", rotate: 18, hotspotTop: "28%", hotspotLeft: "20%" },
-  { top: "-15%", left: "38%", width: "110px", height: "85%", rotate: -6, hotspotTop: "22%", hotspotLeft: "42%" },
-  { top: "-15%", left: "68%", width: "120px", height: "80%", rotate: -16, hotspotTop: "30%", hotspotLeft: "66%" },
-  { top: "10%", left: "-15%", width: "100px", height: "95%", rotate: 65, hotspotTop: "48%", hotspotLeft: "16%" },
-  { top: "5%", left: "92%", width: "100px", height: "95%", rotate: -65, hotspotTop: "45%", hotspotLeft: "82%" },
-  { top: "40%", left: "-12%", width: "90px", height: "85%", rotate: 72, hotspotTop: "68%", hotspotLeft: "28%" },
-  { top: "35%", left: "96%", width: "90px", height: "85%", rotate: -72, hotspotTop: "72%", hotspotLeft: "74%" },
+  { top: "-15%", left: "8%", width: "140px", height: "92%", rotate: 18, hotspotTop: "40%", hotspotLeft: "20%" },
+  { top: "-15%", left: "38%", width: "110px", height: "97%", rotate: -6, hotspotTop: "34%", hotspotLeft: "42%" },
+  { top: "-15%", left: "68%", width: "120px", height: "92%", rotate: -16, hotspotTop: "42%", hotspotLeft: "66%" },
+  { top: "10%", left: "-15%", width: "100px", height: "107%", rotate: 65, hotspotTop: "60%", hotspotLeft: "16%" },
+  { top: "5%", left: "92%", width: "100px", height: "107%", rotate: -65, hotspotTop: "57%", hotspotLeft: "82%" },
+  { top: "40%", left: "-12%", width: "90px", height: "97%", rotate: 72, hotspotTop: "80%", hotspotLeft: "28%" },
+  { top: "35%", left: "96%", width: "90px", height: "97%", rotate: -72, hotspotTop: "84%", hotspotLeft: "74%" },
 ];
 
 // Cores neon pastel, uma por tema, seguindo a ordem do arco-íris.
