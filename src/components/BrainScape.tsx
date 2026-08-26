@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 
 type Theme = { id: string; label: string; blurb: string };
@@ -37,6 +38,45 @@ const THEME_COLORS = [
   "#E45CFF", // violeta
 ];
 
+/**
+ * Painel do tema ativo, renderizado via portal direto no <body>.
+ * Ancorar o painel embaixo de cada ponto de luz é frágil perto das
+ * bordas da tela (pontos a 82%/74%/16% estouram a largura no mobile)
+ * — um painel fixo embaixo, centralizado, nunca estoura em nenhum
+ * tamanho de tela.
+ */
+function ActiveThemePanel({ theme }: { theme: Theme | null }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    // Portais precisam de document.body, que não existe no SSR — este
+    // é o padrão-guarda padrão pra portais em Next.js, não uma
+    // sincronização de estado evitável.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
+
+  return createPortal(
+    <AnimatePresence>
+      {theme && (
+        <motion.div
+          initial={{ opacity: 0, y: 16, scale: 0.92 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 16, scale: 0.92 }}
+          transition={{ type: "spring", stiffness: 340, damping: 28 }}
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] glass rounded-2xl px-5 py-4 w-[min(320px,88vw)] [transform-origin:bottom_center] [transform:translateZ(0)] isolate"
+        >
+          <p className="font-display text-sm text-ink mb-1.5">{theme.label}</p>
+          <p className="font-body text-xs text-ink-soft leading-relaxed">
+            {theme.blurb}
+          </p>
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body
+  );
+}
+
 export function BrainScape({ themes }: { themes: Theme[] }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [pinnedId, setPinnedId] = useState<string | null>(null);
@@ -48,14 +88,14 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
       className="absolute inset-0 overflow-hidden"
       style={{ backgroundColor: "#050507" }}
     >
-      {/* Cérebro em vídeo, quase invisível, dando o ar de mistério */}
+      {/* Cérebro em vídeo, dando o ar de mistério */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ opacity: 0.14, mixBlendMode: "screen" }}
+        className="absolute inset-0 w-full h-full object-contain sm:object-cover pointer-events-none"
+        style={{ opacity: 0.32 }}
       >
         <source src="/media/cerebro-cerebrando.mp4" type="video/mp4" />
       </video>
@@ -79,7 +119,7 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
               filter: "blur(14px)",
               mixBlendMode: "screen",
             }}
-            animate={{ opacity: lit ? 1 : 0.05 }}
+            animate={{ opacity: lit ? 1 : 0.16 }}
             transition={{ duration: lit ? 0.5 : 0.9, ease: "easeOut" }}
           >
             <div
@@ -161,25 +201,11 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
                 {theme.label}
               </span>
             </button>
-
-            <AnimatePresence>
-              {activeId === theme.id && (
-                <motion.div
-                  initial={{ opacity: 0, y: -8, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -8, scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 340, damping: 26 }}
-                  className="glass rounded-2xl px-5 py-4 max-w-[240px] absolute top-full mt-3 left-1/2 -translate-x-1/2 [transform-origin:top_center] [transform:translateZ(0)] isolate"
-                >
-                  <p className="font-body text-xs text-ink-soft leading-relaxed">
-                    {active?.blurb}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
         );
       })}
+
+      <ActiveThemePanel theme={active} />
     </div>
   );
 }
