@@ -34,6 +34,23 @@ export interface Dictionary {
     sobre: { eyebrow: string; title: string; desc: string };
     oquasi: { eyebrow: string; title: string; desc: string };
   };
+  gestaoPage: {
+    eyebrow: string;
+    headline: string;
+    intro: string;
+    roles: {
+      title: string;
+      company: string;
+      period: string;
+      location: string;
+      desc: string;
+    }[];
+    certsTitle: string;
+    certs: string[];
+    statPeople: string;
+    statKpi: string;
+    statYears: string;
+  };
   contact: {
     talk: string;
     pillLabel: string;
@@ -111,6 +128,47 @@ export const translations: Record<Locale, Dictionary> = {
         title: "oQuasi",
         desc: "Quem eu sou quando a câmera do trabalho desliga. A experiência completa desse portal chega em um sprint futuro.",
       },
+    },
+    gestaoPage: {
+      eyebrow: "Edição pessoal · Gestão",
+      headline: "Gestão de operações que sustentam resultado.",
+      intro:
+        "Aqui, os cargos e os números falam por si. Uma trajetória construída de dentro da operação para o comando dela.",
+      roles: [
+        {
+          title: "Supervisor de Operações Bilíngue",
+          company: "Teleperformance",
+          period: "nov 2016 – jun 2018",
+          location: "Parnamirim/RN",
+          desc: "Facilitador de tarefas para produzir resultados positivos. Supervisão e gestão de operação de atendimento ao cliente, monitoramento de qualidade e coaching de habilidades motivacionais.",
+        },
+        {
+          title: "Supervisor Técnico, Especialista de Backoffice",
+          company: "Teleperformance",
+          period: "jun 2018 – jun 2019",
+          location: "Natal/RN",
+          desc: "Apoio a líderes de equipe, gestão de documentação de jornada do cliente e do espaço de trabalho.",
+        },
+        {
+          title: "Coordenador Bilíngue de Operações",
+          company: "Teleperformance",
+          period: "jun 2019 – mar 2025",
+          location: "Natal/RN",
+          desc: "Coordenação de operações, supervisores, staff e experts. Ponte de comunicação entre times, gestão de recursos operacionais, KPIs e relacionamento com contratantes.",
+        },
+        {
+          title: "CEO",
+          company: "QuasiUbi",
+          period: "mar 2025",
+          location: "Natal/RN",
+          desc: "Iniciativa própria voltada a condutores de aplicativos, com foco em segurança e projeção de carreira para parceiros.",
+        },
+      ],
+      certsTitle: "Certificações",
+      certs: ["SCRUM Master", "Six Sigma Yellow Belt"],
+      statPeople: "pessoas lideradas, pico operacional",
+      statKpi: "KPIs sustentados no período",
+      statYears: "anos na Teleperformance, do operacional à coordenação",
     },
     contact: {
       talk: "Vamos conversar",
@@ -191,6 +249,47 @@ export const translations: Record<Locale, Dictionary> = {
         desc: "Who I am when the work camera turns off. The full portal experience is coming in a future sprint.",
       },
     },
+    gestaoPage: {
+      eyebrow: "Personal edition · Management",
+      headline: "Management that sustains results.",
+      intro:
+        "Here, the roles and the numbers speak for themselves. A path built from inside the operation to leading it.",
+      roles: [
+        {
+          title: "Bilingual Operations Supervisor",
+          company: "Teleperformance",
+          period: "Nov 2016 – Jun 2018",
+          location: "Parnamirim, Brazil",
+          desc: "Task facilitator focused on positive outcomes. Supervised and managed customer service operations, quality monitoring, and motivational skills coaching.",
+        },
+        {
+          title: "Technical Supervisor, Backoffice Specialist",
+          company: "Teleperformance",
+          period: "Jun 2018 – Jun 2019",
+          location: "Natal, Brazil",
+          desc: "Supported team leaders, managed customer journey documentation and workspace organization.",
+        },
+        {
+          title: "Bilingual Operations Coordinator",
+          company: "Teleperformance",
+          period: "Jun 2019 – Mar 2025",
+          location: "Natal, Brazil",
+          desc: "Coordinated operations, supervisors, staff, and experts. Bridged communication between teams, managed operational resources, KPIs, and client relationships.",
+        },
+        {
+          title: "CEO",
+          company: "QuasiUbi",
+          period: "Mar 2025",
+          location: "Natal, Brazil",
+          desc: "Own venture focused on app-based drivers, centered on safety and career growth for partner drivers.",
+        },
+      ],
+      certsTitle: "Certifications",
+      certs: ["SCRUM Master", "Six Sigma Yellow Belt"],
+      statPeople: "people led, peak operation",
+      statKpi: "KPIs sustained over the period",
+      statYears: "years at Teleperformance, from the floor to coordination",
+    },
     contact: {
       talk: "Let's talk",
       pillLabel: "Get in touch",
@@ -267,6 +366,46 @@ export const translations: Record<Locale, Dictionary> = {
         title: "oQuasi",
         desc: "当工作的镜头关闭后，我是谁。这个入口的完整体验将在未来的冲刺中呈现。",
       },
+    },
+    gestaoPage: {
+      eyebrow: "个人版 · 管理",
+      headline: "支撑业绩的运营管理。",
+      intro: "在这里，职位与数据本身就是最好的证明。一段从运营一线走向统筹指挥的历程。",
+      roles: [
+        {
+          title: "双语运营主管",
+          company: "Teleperformance",
+          period: "2016年11月 – 2018年6月",
+          location: "巴西帕纳米林",
+          desc: "以促成积极成果为目标的任务协调者。负责客服运营的监督与管理、质量监控以及激励技能辅导。",
+        },
+        {
+          title: "技术主管 / 后勤专员",
+          company: "Teleperformance",
+          period: "2018年6月 – 2019年6月",
+          location: "巴西纳塔尔",
+          desc: "为团队负责人提供支持，管理客户旅程文档及工作空间。",
+        },
+        {
+          title: "双语运营协调员",
+          company: "Teleperformance",
+          period: "2019年6月 – 2025年3月",
+          location: "巴西纳塔尔",
+          desc: "统筹运营、主管、员工与专家团队。作为团队间沟通的桥梁，管理运营资源、KPI及客户关系。",
+        },
+        {
+          title: "首席执行官（CEO）",
+          company: "QuasiUbi",
+          period: "2025年3月",
+          location: "巴西纳塔尔",
+          desc: "面向网约车司机的自主创业项目，专注于合作司机的安全保障与职业发展。",
+        },
+      ],
+      certsTitle: "认证资质",
+      certs: ["敏捷 Scrum Master 认证", "六西格玛黄带认证"],
+      statPeople: "巅峰时期带领的团队人数",
+      statKpi: "期间维持的绩效指标",
+      statYears: "在Teleperformance从一线到统筹协调的从业年限",
     },
     contact: {
       talk: "聊一聊",
