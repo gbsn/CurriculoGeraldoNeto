@@ -95,7 +95,7 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-contain sm:object-cover pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ opacity: 0.32 }}
       >
         <source src="/media/cerebro-cerebrando.mp4" type="video/mp4" />

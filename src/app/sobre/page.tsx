@@ -17,15 +17,15 @@ export default function SobrePage() {
         <main className="relative min-h-screen">
           <BrainScape themes={s.themes} />
 
-          <div className="relative z-10 pt-40 pb-16 max-w-2xl mx-auto px-6 text-center">
-            <div className="glass rounded-3xl px-8 py-8 [transform:translateZ(0)] isolate">
-              <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-3">
+          <div className="relative z-10 pt-24 pb-8 sm:pt-40 sm:pb-16 max-w-2xl mx-auto px-6 text-center">
+            <div className="glass rounded-3xl px-6 py-5 sm:px-8 sm:py-8 [transform:translateZ(0)] isolate">
+              <p className="font-mono text-xs tracking-[0.2em] text-ink-soft uppercase mb-2 sm:mb-3">
                 {s.eyebrow}
               </p>
-              <h1 className="font-display text-4xl sm:text-5xl leading-[1.1] text-ink mb-4">
+              <h1 className="font-display text-2xl sm:text-5xl leading-[1.1] text-ink mb-2 sm:mb-4">
                 {s.headline}
               </h1>
-              <p className="font-body text-base text-ink-soft max-w-lg mx-auto">
+              <p className="font-body text-sm sm:text-base text-ink-soft max-w-lg mx-auto">
                 {s.intro}
               </p>
             </div>
