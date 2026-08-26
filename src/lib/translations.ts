@@ -85,6 +85,14 @@ export interface Dictionary {
     intro: string;
     themes: { id: string; label: string; blurb: string }[];
   };
+  sobreGate: {
+    title: string;
+    subtitle: string;
+    placeholder: string;
+    submit: string;
+    wrong: string;
+    questions: { id: string; q: string; answers: string[] }[];
+  };
   contact: {
     talk: string;
     pillLabel: string;
@@ -376,6 +384,50 @@ export const translations: Record<Locale, Dictionary> = {
           label: "Jogos",
           blurb:
             "Project Zomboid, Vintage Story, e um personagem em Ultima Online otimizado nas horas vagas. Mais de 3.500 horas praticando resolver problema sob pressão — a maioria virtual.",
+        },
+      ],
+    },
+    sobreGate: {
+      title: "A névoa te bloqueia",
+      subtitle: "Responda certo pra ganhar mais 3 minutos aqui dentro.",
+      placeholder: "sua resposta",
+      submit: "Responder",
+      wrong: "Não foi dessa vez. Tenta de novo.",
+      questions: [
+        {
+          id: "cidade",
+          q: "Em que cidade o Geraldo mora?",
+          answers: ["natal"],
+        },
+        {
+          id: "persona",
+          q: "Qual é o nome do persona de criador de conteúdo do Geraldo?",
+          answers: ["oquasi"],
+        },
+        {
+          id: "jogo",
+          q: "Qual jogo o Geraldo já jogou por mais de mil horas?",
+          answers: ["project zomboid", "zomboid"],
+        },
+        {
+          id: "certificacao",
+          q: "Além de SCRUM Master, qual outra certificação o Geraldo tem?",
+          answers: ["six sigma", "six sigma yellow belt", "sixsigma"],
+        },
+        {
+          id: "linguagem",
+          q: "Em qual linguagem o mod UZIr foi escrito?",
+          answers: ["lua"],
+        },
+        {
+          id: "framework",
+          q: "Qual framework foi usado pra construir este site?",
+          answers: ["nextjs", "next"],
+        },
+        {
+          id: "empresa",
+          q: "Em qual empresa de telecom o Geraldo trabalhou por mais tempo?",
+          answers: ["teleperformance"],
         },
       ],
     },
@@ -674,6 +726,50 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
     },
+    sobreGate: {
+      title: "The fog blocks you",
+      subtitle: "Answer correctly to earn 3 more minutes in here.",
+      placeholder: "your answer",
+      submit: "Answer",
+      wrong: "Not this time. Try again.",
+      questions: [
+        {
+          id: "cidade",
+          q: "What city does Geraldo live in?",
+          answers: ["natal"],
+        },
+        {
+          id: "persona",
+          q: "What's the name of Geraldo's content-creator persona?",
+          answers: ["oquasi"],
+        },
+        {
+          id: "jogo",
+          q: "Which game has Geraldo played for over a thousand hours?",
+          answers: ["project zomboid", "zomboid"],
+        },
+        {
+          id: "certificacao",
+          q: "Besides SCRUM Master, what other certification does Geraldo hold?",
+          answers: ["six sigma", "six sigma yellow belt", "sixsigma"],
+        },
+        {
+          id: "linguagem",
+          q: "What language was the UZIr mod written in?",
+          answers: ["lua"],
+        },
+        {
+          id: "framework",
+          q: "What framework was used to build this site?",
+          answers: ["nextjs", "next"],
+        },
+        {
+          id: "empresa",
+          q: "Which telecom company did Geraldo work at the longest?",
+          answers: ["teleperformance"],
+        },
+      ],
+    },
     contact: {
       talk: "Let's talk",
       pillLabel: "Get in touch",
@@ -958,6 +1054,42 @@ export const translations: Record<Locale, Dictionary> = {
           label: "游戏",
           blurb:
             "《Project Zomboid》、《Vintage Story》，还有一个在业余时间精心打磨的《Ultima Online》角色。3500多个小时都在练习在压力下解决问题 —— 大多数是虚拟世界里的。",
+        },
+      ],
+    },
+    sobreGate: {
+      title: "迷雾挡住了你",
+      subtitle: "答对问题即可再获得3分钟。",
+      placeholder: "你的答案",
+      submit: "提交",
+      wrong: "这次不对，再试一次。",
+      questions: [
+        { id: "cidade", q: "Geraldo住在哪个城市？", answers: ["natal"] },
+        {
+          id: "persona",
+          q: "Geraldo的内容创作者身份叫什么名字？",
+          answers: ["oquasi"],
+        },
+        {
+          id: "jogo",
+          q: "Geraldo玩了超过一千小时的是哪款游戏？",
+          answers: ["project zomboid", "zomboid"],
+        },
+        {
+          id: "certificacao",
+          q: "除了SCRUM Master，Geraldo还持有哪个认证？",
+          answers: ["six sigma", "six sigma yellow belt", "sixsigma"],
+        },
+        { id: "linguagem", q: "UZIr模组是用什么语言编写的？", answers: ["lua"] },
+        {
+          id: "framework",
+          q: "这个网站是用什么框架搭建的？",
+          answers: ["nextjs", "next"],
+        },
+        {
+          id: "empresa",
+          q: "Geraldo在哪家电信公司工作时间最长？",
+          answers: ["teleperformance"],
         },
       ],
     },

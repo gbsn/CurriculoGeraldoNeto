@@ -26,6 +26,17 @@ const RAYS: Ray[] = [
   { top: "35%", left: "96%", width: "90px", height: "85%", rotate: -72, hotspotTop: "72%", hotspotLeft: "74%" },
 ];
 
+// Cores neon pastel, uma por tema, seguindo a ordem do arco-íris.
+const THEME_COLORS = [
+  "#FF5C7A", // vermelho
+  "#FFA552", // laranja
+  "#FFE156", // amarelo
+  "#5CFFA0", // verde
+  "#5CC8FF", // azul
+  "#7C83FF", // índigo
+  "#E45CFF", // violeta
+];
+
 export function BrainScape({ themes }: { themes: Theme[] }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [pinnedId, setPinnedId] = useState<string | null>(null);
@@ -127,15 +138,24 @@ export function BrainScape({ themes }: { themes: Theme[] }) {
             >
               <motion.span
                 className="block rounded-full"
-                style={{
-                  width: 14,
-                  height: 14,
-                  background: "radial-gradient(circle, #fff 0%, #fff1d6 60%, transparent 100%)",
-                  boxShadow: "0 0 24px 8px rgba(255,241,214,0.55)",
-                }}
-                animate={{ opacity: [0.65, 1, 0.65], scale: [1, 1.3, 1] }}
-                transition={{ duration: 2.4 + (i % 3) * 0.5, repeat: Infinity, ease: "easeInOut" }}
-                whileHover={{ scale: 1.8 }}
+                style={{ width: 16, height: 16, borderWidth: 2, borderStyle: "solid" }}
+                animate={
+                  activeId === theme.id
+                    ? {
+                        backgroundColor: THEME_COLORS[i % THEME_COLORS.length],
+                        borderColor: THEME_COLORS[i % THEME_COLORS.length],
+                        boxShadow: `0 0 26px 8px ${THEME_COLORS[i % THEME_COLORS.length]}99`,
+                        scale: 1.5,
+                      }
+                    : {
+                        backgroundColor: "#050507",
+                        borderColor: "#ffffff",
+                        boxShadow: "0 0 6px 1px rgba(255,255,255,0.25)",
+                        scale: 1,
+                      }
+                }
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                initial={false}
               />
               <span className="font-mono text-xs text-white/80 whitespace-nowrap drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
                 {theme.label}

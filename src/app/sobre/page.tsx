@@ -4,10 +4,12 @@ import { PageShell } from "@/components/PageShell";
 import { RubberBandGate } from "@/components/RubberBandGate";
 import { useLanguage } from "@/components/LanguageProvider";
 import { BrainScape } from "@/components/BrainScape";
+import { SessionGate } from "@/components/SessionGate";
 
 export default function SobrePage() {
   const { t } = useLanguage();
   const s = t.sobrePage;
+  const gate = t.sobreGate;
 
   return (
     <PageShell>
@@ -28,6 +30,8 @@ export default function SobrePage() {
               </p>
             </div>
           </div>
+
+          <SessionGate questions={gate.questions} copy={gate} />
         </main>
       </RubberBandGate>
     </PageShell>
