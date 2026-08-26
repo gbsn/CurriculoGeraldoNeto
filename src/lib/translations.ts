@@ -79,6 +79,12 @@ export interface Dictionary {
       links: { label: string; url: string }[];
     }[];
   };
+  sobrePage: {
+    eyebrow: string;
+    headline: string;
+    intro: string;
+    themes: { id: string; label: string; blurb: string }[];
+  };
   contact: {
     talk: string;
     pillLabel: string;
@@ -323,6 +329,53 @@ export const translations: Record<Locale, Dictionary> = {
             "Projeto de teste técnico contratado por uma empresa em processo seletivo de freelancers. Prova de trabalho sob prazo real.",
           tags: ["Vue"],
           links: [{ label: "GitHub", url: "https://github.com/gbsn/AllVueJs" }],
+        },
+      ],
+    },
+    sobrePage: {
+      eyebrow: "Edição pessoal · Sobre mim",
+      headline: "Uma espiada por dentro",
+      intro:
+        "Clique nas luzes. Cada uma é um pedaço de mim fora do expediente — bem por cima, sem aprofundar demais.",
+      themes: [
+        {
+          id: "economia",
+          label: "Economia",
+          blurb:
+            "Onde tudo começou antes da tecnologia — meu outro diploma, e a lente que uso pra entender sistemas maiores que código.",
+        },
+        {
+          id: "filosofia",
+          label: "Filosofia",
+          blurb:
+            "Pergunto o porquê antes do como. Ajuda mais do que devia em reunião de gestão.",
+        },
+        {
+          id: "antropologia",
+          label: "Antropologia",
+          blurb:
+            "Curiosidade sobre como as pessoas se organizam — útil pra quem já liderou 1.400 delas.",
+        },
+        {
+          id: "musica",
+          label: "Música eletrônica & raves",
+          blurb: "Onde a lógica descansa. Um beat repetitivo é só outro tipo de loop.",
+        },
+        {
+          id: "scifi",
+          label: "Ficção científica",
+          blurb: "Meu jeito favorito de pensar sobre o futuro antes dele chegar.",
+        },
+        {
+          id: "transumanismo",
+          label: "Transumanismo",
+          blurb: "A pergunta que fica: até onde tecnologia e humano se fundem?",
+        },
+        {
+          id: "jogos",
+          label: "Jogos",
+          blurb:
+            "Project Zomboid, Vintage Story, e um personagem em Ultima Online otimizado nas horas vagas. Mais de 3.500 horas praticando resolver problema sob pressão — a maioria virtual.",
         },
       ],
     },
@@ -574,6 +627,53 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
     },
+    sobrePage: {
+      eyebrow: "Personal edition · About me",
+      headline: "A peek inside",
+      intro:
+        "Click the lights. Each one's a piece of me off the clock — kept light, not too deep.",
+      themes: [
+        {
+          id: "economia",
+          label: "Economics",
+          blurb:
+            "Where it all started before technology — my other degree, and the lens I use to read systems bigger than code.",
+        },
+        {
+          id: "filosofia",
+          label: "Philosophy",
+          blurb:
+            "I ask why before how. Helps more than it should in management meetings.",
+        },
+        {
+          id: "antropologia",
+          label: "Anthropology",
+          blurb:
+            "Curiosity about how people organize themselves — useful for someone who's led 1,400 of them.",
+        },
+        {
+          id: "musica",
+          label: "Electronic music & raves",
+          blurb: "Where logic gets to rest. A repetitive beat is just another kind of loop.",
+        },
+        {
+          id: "scifi",
+          label: "Science fiction",
+          blurb: "My favorite way to think about the future before it arrives.",
+        },
+        {
+          id: "transumanismo",
+          label: "Transhumanism",
+          blurb: "The question that stays with me: how far do technology and human blur together?",
+        },
+        {
+          id: "jogos",
+          label: "Games",
+          blurb:
+            "Project Zomboid, Vintage Story, and an Ultima Online character optimized in my spare time. 3,500+ hours practicing problem-solving under pressure — mostly virtual.",
+        },
+      ],
+    },
     contact: {
       talk: "Let's talk",
       pillLabel: "Get in touch",
@@ -814,6 +914,50 @@ export const translations: Record<Locale, Dictionary> = {
             "受聘为一家公司自由职业者招募流程中的技术测试项目。是在真实截止日期下完成工作的证明。",
           tags: ["Vue"],
           links: [{ label: "GitHub", url: "https://github.com/gbsn/AllVueJs" }],
+        },
+      ],
+    },
+    sobrePage: {
+      eyebrow: "个人版 · 关于我",
+      headline: "窥探内心一角",
+      intro: "点击这些光点。每一个都是我下班后的一小部分 —— 点到为止，不深入。",
+      themes: [
+        {
+          id: "economia",
+          label: "经济学",
+          blurb:
+            "在踏入科技之前一切开始的地方 —— 我的另一个学位，也是我用来理解比代码更大系统的视角。",
+        },
+        {
+          id: "filosofia",
+          label: "哲学",
+          blurb: "我总是先问为什么，再问怎么做。在管理会议上，这个习惯帮了不少忙。",
+        },
+        {
+          id: "antropologia",
+          label: "人类学",
+          blurb: "对人们如何自我组织的好奇心 —— 对一个曾带领过1400人的人来说，这很有用。",
+        },
+        {
+          id: "musica",
+          label: "电子音乐与锐舞",
+          blurb: "逻辑得以休息的地方。重复的节拍其实也是另一种循环。",
+        },
+        {
+          id: "scifi",
+          label: "科幻",
+          blurb: "我最喜欢的思考未来的方式，在未来真正到来之前。",
+        },
+        {
+          id: "transumanismo",
+          label: "超人类主义",
+          blurb: "始终萦绕心头的问题：科技与人类，究竟会融合到什么程度？",
+        },
+        {
+          id: "jogos",
+          label: "游戏",
+          blurb:
+            "《Project Zomboid》、《Vintage Story》，还有一个在业余时间精心打磨的《Ultima Online》角色。3500多个小时都在练习在压力下解决问题 —— 大多数是虚拟世界里的。",
         },
       ],
     },
