@@ -1,3 +1,88 @@
+"use client";
+
+import { motion } from "motion/react";
+
+type Egg = {
+  text: string;
+  top: string;
+  side: "left" | "right";
+  rotate: number;
+  color: string;
+};
+
+const EGGS: Egg[] = [
+  {
+    text: "if (life == java) { life.outOfBounds(); }",
+    top: "9%",
+    side: "left",
+    rotate: -3,
+    color: "#4EC9B0",
+  },
+  {
+    text: "// 99 little bugs in the code...",
+    top: "24%",
+    side: "right",
+    rotate: 2,
+    color: "#DCDCAA",
+  },
+  {
+    text: "twitch.tv/oquasi — brb, debugando IRL",
+    top: "40%",
+    side: "left",
+    rotate: 3,
+    color: "#CE9178",
+  },
+  {
+    text: 'sudo make me a coffee',
+    top: "55%",
+    side: "right",
+    rotate: -2,
+    color: "#4EC9B0",
+  },
+  {
+    text: "// esse commit performa melhor que eu na live",
+    top: "70%",
+    side: "left",
+    rotate: -3,
+    color: "#DCDCAA",
+  },
+  {
+    text: 'console.log("cast heal neste bug")',
+    top: "87%",
+    side: "right",
+    rotate: 2,
+    color: "#CE9178",
+  },
+];
+
+function EasterEggs() {
+  return (
+    <>
+      {EGGS.map((egg) => (
+        <motion.div
+          key={egg.text}
+          aria-hidden
+          className={`hidden lg:block absolute font-mono text-xs px-3 py-1.5 rounded-lg border whitespace-nowrap ${
+            egg.side === "left" ? "left-[3%]" : "right-[3%]"
+          }`}
+          style={{
+            top: egg.top,
+            color: egg.color,
+            backgroundColor: "rgba(0,0,0,0.55)",
+            borderColor: `${egg.color}55`,
+          }}
+          initial={{ opacity: 0, scale: 0.7, rotate: 0 }}
+          whileInView={{ opacity: 0.9, scale: 1, rotate: egg.rotate }}
+          viewport={{ once: false, margin: "-20% 0px" }}
+          transition={{ type: "spring", stiffness: 340, damping: 16 }}
+        >
+          {egg.text}
+        </motion.div>
+      ))}
+    </>
+  );
+}
+
 const COLOR = {
   comment: "#6A9955",
   keyword: "#C586C0",
@@ -157,6 +242,9 @@ export function CodeBackdrop() {
             "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.55) 100%)",
         }}
       />
+
+      {/* Easter eggs — nítidos, sem blur, saltam ao entrar na viewport */}
+      <EasterEggs />
     </div>
   );
 }
