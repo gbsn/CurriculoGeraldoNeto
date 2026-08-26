@@ -51,6 +51,19 @@ export interface Dictionary {
     statKpi: string;
     statYears: string;
   };
+  experienciasPage: {
+    eyebrow: string;
+    headline: string;
+    intro: string;
+    draftNote: string;
+    roles: {
+      title: string;
+      company: string;
+      period: string;
+      location: string;
+      desc: string;
+    }[];
+  };
   contact: {
     talk: string;
     pillLabel: string;
@@ -77,7 +90,7 @@ export const translations: Record<Locale, Dictionary> = {
     nav: {
       tecnologia: "Tecnologia",
       gestao: "Gestão",
-      experiencias: "Experiências",
+      experiencias: "Curriculum Vitae",
       sobre: "Sobre",
     },
     home: {
@@ -170,6 +183,65 @@ export const translations: Record<Locale, Dictionary> = {
       statKpi: "KPIs sustentados no período",
       statYears: "anos na Teleperformance, do operacional à coordenação",
     },
+    experienciasPage: {
+      eyebrow: "Edição pessoal · Curriculum Vitae · em construção",
+      headline: "Curriculum Vitae",
+      intro:
+        "Tudo que não coube em nenhum outro tema, reunido aqui em ordem cronológica.",
+      draftNote:
+        "Nota: essa seção ainda vai passar por um redesenho de storytelling mais pesado. Por ora, é só o registro bruto das experiências.",
+      roles: [
+        {
+          title: "Técnico e agente de garantia",
+          company: "Itautec",
+          period: "fev 2008 – fev 2009",
+          location: "Natal/RN",
+          desc: "Seguia as ordens de garantia, trocando, consertando ou substituindo aparelhos fornecidos pela Itautec que precisassem de reparo em garantia.",
+        },
+        {
+          title: "Agente de Vendas Pessoa Física — Linhas Móveis e Fixas",
+          company: "Oi Telecom",
+          period: "2008",
+          location: "Natal/RN",
+          desc: "Vendas externas e internas de linhas móveis e fixas (Oi Conta Total). Recordista em vendas durante três meses seguidos, promovido a Vendedor de Linhas Empresariais.",
+        },
+        {
+          title: "Agente de Vendas Pessoa Jurídica — Linhas Móveis",
+          company: "Oi Telecom",
+          period: "2009",
+          location: "Natal/RN",
+          desc: "Prospecção, gestão e negociação com portfólio abrangente de produtos B2B, planos focados na necessidade do cliente, em parceria com equipes de backoffice e pós-venda. Destaque por melhor atendimento nos últimos dois meses do contrato.",
+        },
+        {
+          title: "Suporte remoto (TI)",
+          company: "ACOM Solutions, Inc.",
+          period: "mai 2011 – nov 2012",
+          location: "Natal/RN",
+          desc: "Atendimento direto ao cliente remotamente, via SSH, VPN, telefone ou pessoalmente, buscando resolver problemas de rede ou sinal de TV.",
+        },
+        {
+          title: "Agente de suporte TI",
+          company: "Cabo Telecom",
+          period: "jan 2013 – dez 2013",
+          location: "Natal e Região",
+          desc: "Atendimento ao cliente final via SSH, VPN, telefone ou pessoalmente, buscando resolver problemas de rede ou sinal de TV.",
+        },
+        {
+          title: "Estagiário",
+          company: "TecnoTech Sistemas LTDA",
+          period: "fev 2014 – ago 2014",
+          location: "Natal e Região",
+          desc: "Gestão do suporte da empresa, mediando e organizando a interação dos programadores com o sistema de controle de demanda.",
+        },
+        {
+          title: "Desenvolvedor de software júnior",
+          company: "JMTweb",
+          period: "jun 2015 – jun 2016",
+          location: "Avenida Búzios, 9034",
+          desc: "Desenvolvedor chefe de projetos web, em PHP e MySQL, usando BrainStorm IDE e phpMyAdmin. SEO com Google Tools, especialista em Google Sheets. Desenvolvimento de sistemas financeiros generalistas embarcados em websites, usando Scrum.",
+        },
+      ],
+    },
     contact: {
       talk: "Vamos conversar",
       pillLabel: "Falar comigo",
@@ -197,7 +269,7 @@ export const translations: Record<Locale, Dictionary> = {
     nav: {
       tecnologia: "Technology",
       gestao: "Management",
-      experiencias: "Experience",
+      experiencias: "Curriculum Vitae",
       sobre: "About",
     },
     home: {
@@ -290,6 +362,65 @@ export const translations: Record<Locale, Dictionary> = {
       statKpi: "KPIs sustained over the period",
       statYears: "years at Teleperformance, from the floor to coordination",
     },
+    experienciasPage: {
+      eyebrow: "Personal edition · Curriculum Vitae · under construction",
+      headline: "Curriculum Vitae",
+      intro:
+        "Everything that didn't fit into another theme, gathered here in chronological order.",
+      draftNote:
+        "Note: this section will still go through a heavier storytelling redesign. For now, it's just the raw record of experiences.",
+      roles: [
+        {
+          title: "Warranty Technician & Agent",
+          company: "Itautec",
+          period: "Feb 2008 – Feb 2009",
+          location: "Natal, Brazil",
+          desc: "Followed warranty service orders, repairing, replacing, or exchanging Itautec equipment under warranty.",
+        },
+        {
+          title: "Personal Lines Sales Agent — Mobile & Landline",
+          company: "Oi Telecom",
+          period: "2008",
+          location: "Natal, Brazil",
+          desc: "Handled inbound and outbound sales of mobile and landline plans (Oi Conta Total). Top seller for three consecutive months, promoted to Business Lines Sales Rep.",
+        },
+        {
+          title: "Business Sales Agent — Mobile Lines (B2B)",
+          company: "Oi Telecom",
+          period: "2009",
+          location: "Natal, Brazil",
+          desc: "Prospected, managed, and negotiated a broad B2B product portfolio tailored to client needs, working alongside backoffice and after-sales teams. Recognized for best service in the contract's final two months.",
+        },
+        {
+          title: "Remote IT Support",
+          company: "ACOM Solutions, Inc.",
+          period: "May 2011 – Nov 2012",
+          location: "Natal, Brazil",
+          desc: "Direct remote customer support via SSH, VPN, phone, or in person, resolving network and TV signal issues.",
+        },
+        {
+          title: "IT Support Agent",
+          company: "Cabo Telecom",
+          period: "Jan 2013 – Dec 2013",
+          location: "Natal Region, Brazil",
+          desc: "End-customer support via SSH, VPN, phone, or in person, resolving network and TV signal issues.",
+        },
+        {
+          title: "Intern",
+          company: "TecnoTech Sistemas LTDA",
+          period: "Feb 2014 – Aug 2014",
+          location: "Natal Region, Brazil",
+          desc: "Managed company support and mediated the interaction between developers and the demand-tracking system.",
+        },
+        {
+          title: "Junior Software Developer",
+          company: "JMTweb",
+          period: "Jun 2015 – Jun 2016",
+          location: "Avenida Búzios, 9034",
+          desc: "Lead web developer, working in PHP and MySQL using BrainStorm IDE and phpMyAdmin. SEO with Google tools, Google Sheets specialist. Built general-purpose financial systems embedded in websites, using Scrum.",
+        },
+      ],
+    },
     contact: {
       talk: "Let's talk",
       pillLabel: "Get in touch",
@@ -317,7 +448,7 @@ export const translations: Record<Locale, Dictionary> = {
     nav: {
       tecnologia: "技术",
       gestao: "管理",
-      experiencias: "经历",
+      experiencias: "个人履历",
       sobre: "关于",
     },
     home: {
@@ -406,6 +537,64 @@ export const translations: Record<Locale, Dictionary> = {
       statPeople: "巅峰时期带领的团队人数",
       statKpi: "期间维持的绩效指标",
       statYears: "在Teleperformance从一线到统筹协调的从业年限",
+    },
+    experienciasPage: {
+      eyebrow: "个人版 · 个人履历 · 建设中",
+      headline: "个人履历",
+      intro: "所有不属于其他主题的经历，按时间顺序汇总于此。",
+      draftNote:
+        "备注：这部分最终会经过更重的叙事化重新设计。目前，这里只是经历的原始记录。",
+      roles: [
+        {
+          title: "保修技术员/代理",
+          company: "Itautec",
+          period: "2008年2月 – 2009年2月",
+          location: "巴西纳塔尔",
+          desc: "负责执行保修工单，对Itautec提供的设备进行更换、维修或替换。",
+        },
+        {
+          title: "个人客户销售专员 —— 移动与固定线路",
+          company: "Oi Telecom",
+          period: "2008年",
+          location: "巴西纳塔尔",
+          desc: "负责移动和固定电话线路（Oi Conta Total）的内外销售。连续三个月蝉联销售冠军，晋升为企业线路销售员。",
+        },
+        {
+          title: "法人客户销售专员 —— 移动线路（B2B）",
+          company: "Oi Telecom",
+          period: "2009年",
+          location: "巴西纳塔尔",
+          desc: "负责拓展、管理与谈判广泛的B2B产品组合，根据客户需求提供定制方案，并与后勤及售后团队协作。因合同最后两个月的最佳服务表现而获得认可。",
+        },
+        {
+          title: "远程IT支持",
+          company: "ACOM Solutions, Inc.",
+          period: "2011年5月 – 2012年11月",
+          location: "巴西纳塔尔",
+          desc: "通过SSH、VPN、电话或现场方式为客户提供远程支持，解决网络及电视信号问题。",
+        },
+        {
+          title: "IT支持专员",
+          company: "Cabo Telecom",
+          period: "2013年1月 – 2013年12月",
+          location: "巴西纳塔尔地区",
+          desc: "通过SSH、VPN、电话或现场方式为终端客户提供支持，解决网络及电视信号问题。",
+        },
+        {
+          title: "实习生",
+          company: "TecnoTech Sistemas LTDA",
+          period: "2014年2月 – 2014年8月",
+          location: "巴西纳塔尔地区",
+          desc: "负责公司支持工作的管理，协调并组织程序员与需求管理系统之间的互动。",
+        },
+        {
+          title: "初级软件开发工程师",
+          company: "JMTweb",
+          period: "2015年6月 – 2016年6月",
+          location: "Avenida Búzios, 9034",
+          desc: "使用PHP和MySQL担任项目主开发，工具为BrainStorm IDE与phpMyAdmin。负责Google工具SEO优化，精通Google表格。基于Scrum方法开发嵌入网站的通用财务系统。",
+        },
+      ],
     },
     contact: {
       talk: "聊一聊",
