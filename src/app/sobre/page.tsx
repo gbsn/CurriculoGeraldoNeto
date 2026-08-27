@@ -31,7 +31,7 @@ export default function SobrePage() {
             </div>
           </div>
 
-          <SessionGate questions={gate.questions} copy={gate} />
+          <SessionGate questions={gate.questions} easyQuestions={gate.easyQuestions} copy={gate} />
         </main>
       </RubberBandGate>
     </PageShell>

@@ -88,10 +88,15 @@ export interface Dictionary {
   sobreGate: {
     title: string;
     subtitle: string;
+    retrySubtitle: string;
     placeholder: string;
     submit: string;
     wrong: string;
+    bleedMessage: string;
+    punishedTitle: string;
+    punishedSubtitle: string;
     questions: { id: string; q: string; answers: string[] }[];
+    easyQuestions: { id: string; q: string; answers: string[] }[];
   };
   contact: {
     talk: string;
@@ -390,9 +395,14 @@ export const translations: Record<Locale, Dictionary> = {
     sobreGate: {
       title: "A névoa te bloqueia",
       subtitle: "Responda certo pra ganhar mais 3 minutos aqui dentro.",
+      retrySubtitle: "A névoa engrossou. Última pergunta, mais fácil dessa vez.",
       placeholder: "sua resposta",
       submit: "Responder",
       wrong: "Não foi dessa vez. Tenta de novo.",
+      bleedMessage:
+        "E se você não leu as outras sessões com atenção... vou lhe dar mais uma chance!",
+      punishedTitle: "Trancado por enquanto",
+      punishedSubtitle: "A névoa ainda não abriu. Volta em:",
       questions: [
         {
           id: "cidade",
@@ -428,6 +438,23 @@ export const translations: Record<Locale, Dictionary> = {
           id: "empresa",
           q: "Em qual empresa de telecom o Geraldo trabalhou por mais tempo?",
           answers: ["teleperformance"],
+        },
+      ],
+      easyQuestions: [
+        {
+          id: "soma",
+          q: "Pergunta fácil: quanto é 2 + 2?",
+          answers: ["4", "quatro"],
+        },
+        {
+          id: "nome",
+          q: "Só pra confirmar: qual é o primeiro nome do dono desse site?",
+          answers: ["geraldo"],
+        },
+        {
+          id: "pais",
+          q: "Em que país fica Natal, a cidade do Geraldo?",
+          answers: ["brasil"],
         },
       ],
     },
@@ -729,9 +756,14 @@ export const translations: Record<Locale, Dictionary> = {
     sobreGate: {
       title: "The fog blocks you",
       subtitle: "Answer correctly to earn 3 more minutes in here.",
+      retrySubtitle: "The fog thickened. One last question, easier this time.",
       placeholder: "your answer",
       submit: "Answer",
       wrong: "Not this time. Try again.",
+      bleedMessage:
+        "Guess you didn't read the other sections carefully... I'll give you one more chance!",
+      punishedTitle: "Locked for now",
+      punishedSubtitle: "The fog hasn't lifted yet. Back in:",
       questions: [
         {
           id: "cidade",
@@ -767,6 +799,23 @@ export const translations: Record<Locale, Dictionary> = {
           id: "empresa",
           q: "Which telecom company did Geraldo work at the longest?",
           answers: ["teleperformance"],
+        },
+      ],
+      easyQuestions: [
+        {
+          id: "soma",
+          q: "Easy one: what's 2 + 2?",
+          answers: ["4", "four"],
+        },
+        {
+          id: "nome",
+          q: "Just to confirm: what's this site owner's first name?",
+          answers: ["geraldo"],
+        },
+        {
+          id: "pais",
+          q: "What country is Natal, Geraldo's city, in?",
+          answers: ["brazil"],
         },
       ],
     },
@@ -1060,9 +1109,13 @@ export const translations: Record<Locale, Dictionary> = {
     sobreGate: {
       title: "迷雾挡住了你",
       subtitle: "答对问题即可再获得3分钟。",
+      retrySubtitle: "迷雾变浓了。最后一次机会，这次问题更简单。",
       placeholder: "你的答案",
       submit: "提交",
       wrong: "这次不对，再试一次。",
+      bleedMessage: "看来你没有仔细读完其他部分……再给你一次机会！",
+      punishedTitle: "暂时被锁住了",
+      punishedSubtitle: "迷雾还没散开。还剩：",
       questions: [
         { id: "cidade", q: "Geraldo住在哪个城市？", answers: ["natal"] },
         {
@@ -1091,6 +1144,15 @@ export const translations: Record<Locale, Dictionary> = {
           q: "Geraldo在哪家电信公司工作时间最长？",
           answers: ["teleperformance"],
         },
+      ],
+      easyQuestions: [
+        { id: "soma", q: "简单题：2 + 2 等于多少？", answers: ["4", "四"] },
+        {
+          id: "nome",
+          q: "确认一下：这个网站主人的名字是什么？",
+          answers: ["geraldo"],
+        },
+        { id: "pais", q: "Geraldo的城市纳塔尔在哪个国家？", answers: ["巴西"] },
       ],
     },
     contact: {

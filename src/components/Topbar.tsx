@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
+import { getPunishmentRemaining } from "@/lib/sobreLock";
 import type { Locale } from "@/lib/translations";
 
 const LANGS: { code: Locale; label: string }[] = [
@@ -19,12 +20,22 @@ export function Topbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
   const pathname = usePathname();
+  const [sobreLocked, setSobreLocked] = useState(false);
+
+  useEffect(() => {
+    function check() {
+      setSobreLocked(getPunishmentRemaining() > 0);
+    }
+    check();
+    const id = window.setInterval(check, 1000);
+    return () => window.clearInterval(id);
+  }, []);
 
   const NAV_ITEMS = [
     { href: "/tecnologia", label: t.nav.tecnologia },
     { href: "/gestao", label: t.nav.gestao },
     { href: "/experiencias", label: t.nav.experiencias },
-    { href: "/sobre", label: t.nav.sobre },
+    ...(sobreLocked ? [] : [{ href: "/sobre", label: t.nav.sobre }]),
   ];
 
   return (
