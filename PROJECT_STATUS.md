@@ -110,6 +110,10 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **8b6f82c** — fix: sangramento dá 25s pra ler antes do redirect (vermelho
+  sobe em 2.5s, segura o resto); cronômetro de 3min vira portal fixo;
+  pontos de tema redistribuídos (container 150vh) — todos abaixo do
+  painel do título, aceitando cortar mais o cérebro na 1ª tela.
 - **f1b9501** — feat: escalada do mini-jogo (SessionGate) — erro 1: névoa
   tempestuosa/escura + pergunta mais fácil + flash; erro 2: tela sangra
   vermelho + aviso + expulsão + castigo de 3min (nav "Sobre mim" some,
