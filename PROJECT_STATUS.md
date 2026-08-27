@@ -87,13 +87,15 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 3 minutos. Persiste expiração em localStorage.
 
 **Pendências conhecidas nessa página:**
-- Vídeo estava invisível no mobile (object-cover cortava demais em tela
-  retrato + blend mode escondia o conteúdo) — corrigido pra
-  `object-contain` no mobile, sem depender de blend mode.
+- **TAREFA PENDENTE (confirmada pelo usuário):** revisar/corrigir os
+  textos dos popups de tema (Economia, Filosofia, Antropologia, Música
+  eletrônica & raves, Ficção científica, Transumanismo, Jogos) —
+  conteúdo atual é genérico ("aprofundamos depois", palavras dele).
 - Sua foto (`/public/media/geraldo-neto.jpg`) já está no repo, mas
   **não está sendo usada em lugar nenhum ainda** — combinamos usar
-  quando ele/ela decidir onde.
-- Conteúdo dos 7 temas é genérico ("aprofundamos depois", palavras dele).
+  quando ele decidir onde.
+- Vídeo usa `object-cover` (não `object-contain` — essa opção foi
+  tentada e revertida, criava letterbox preto gigante no mobile).
 
 ## Universo: oQuasi — `/oquasi`
 
@@ -110,6 +112,9 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- Sessão de trabalho na página Sobre encerrada por ora (mini-jogo e
+  cena funcionando). Pendência anotada: revisar textos dos popups de
+  tema (ver seção "Sobre mim" acima).
 - **fc74d38** — feat: delay do sangramento reduzido pra 10s; contagem
   regressiva com números gigantes (3,2,1) nos últimos 3s antes do
   redirect.
