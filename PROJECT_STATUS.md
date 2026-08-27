@@ -110,6 +110,12 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **53f7a37** — fix CRÍTICO: validação do mini-jogo aceitava qualquer coisa
+  (inclusive vazio) em perguntas com resposta numérica — o regex de
+  normalização apagava dígitos, então "4", "5" e "" todos viravam a
+  mesma string vazia e combinavam entre si. Trocado por Unicode
+  property escapes (`\p{L}\p{N}`), que de quebra também corrige
+  suporte a respostas em 中文.
 - **8b6f82c** — fix: sangramento dá 25s pra ler antes do redirect (vermelho
   sobe em 2.5s, segura o resto); cronômetro de 3min vira portal fixo;
   pontos de tema redistribuídos (container 150vh) — todos abaixo do
