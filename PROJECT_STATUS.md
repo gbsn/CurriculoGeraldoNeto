@@ -110,6 +110,9 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **fc74d38** — feat: delay do sangramento reduzido pra 10s; contagem
+  regressiva com números gigantes (3,2,1) nos últimos 3s antes do
+  redirect.
 - **53f7a37** — fix CRÍTICO: validação do mini-jogo aceitava qualquer coisa
   (inclusive vazio) em perguntas com resposta numérica — o regex de
   normalização apagava dígitos, então "4", "5" e "" todos viravam a
