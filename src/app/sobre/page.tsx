@@ -14,7 +14,7 @@ export default function SobrePage() {
   return (
     <PageShell>
       <RubberBandGate prevHref="/experiencias" nextHref="/">
-        <main className="relative min-h-screen">
+        <main className="relative min-h-[150vh]">
           <BrainScape themes={s.themes} />
 
           <div className="relative z-10 pt-24 pb-8 sm:pt-40 sm:pb-16 max-w-2xl mx-auto px-6 text-center">

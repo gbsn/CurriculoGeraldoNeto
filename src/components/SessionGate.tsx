@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { getPunishmentRemaining, setPunishment, clearPunishment } from "@/lib/sobreLock";
@@ -21,7 +22,7 @@ type Copy = {
 const STORAGE_KEY = "sobre-session-gate";
 const DURATION_MS = 3 * 60 * 1000;
 const PUNISH_DURATION_MS = 3 * 60 * 1000;
-const BLEED_REDIRECT_DELAY_MS = 2700;
+const BLEED_REDIRECT_DELAY_MS = 25000;
 
 function normalize(s: string) {
   return s
@@ -92,6 +93,13 @@ export function SessionGate({
   const [flash, setFlash] = useState(false);
   const expiryRef = useRef(0);
   const punishExpiryRef = useRef(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Portais precisam de document.body, que não existe no SSR.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const punishLeft = getPunishmentRemaining();
@@ -198,15 +206,18 @@ export function SessionGate({
 
   return (
     <>
-      {status === "active" && (
-        <div className="absolute bottom-6 right-6 z-30">
-          <div className="glass rounded-2xl px-4 py-2.5 [transform:translateZ(0)] isolate">
-            <span className="font-mono text-2xl tabular-nums text-ink tracking-wide">
-              {minutes}:{seconds.toString().padStart(2, "0")}
-            </span>
-          </div>
-        </div>
-      )}
+      {status === "active" &&
+        mounted &&
+        createPortal(
+          <div className="fixed bottom-6 right-6 z-30">
+            <div className="glass rounded-2xl px-4 py-2.5 [transform:translateZ(0)] isolate">
+              <span className="font-mono text-2xl tabular-nums text-ink tracking-wide">
+                {minutes}:{seconds.toString().padStart(2, "0")}
+              </span>
+            </div>
+          </div>,
+          document.body
+        )}
 
       {/* Flash tipo raio, no primeiro erro */}
       <AnimatePresence>
@@ -235,7 +246,7 @@ export function SessionGate({
               style={{ backgroundColor: "#3a0000" }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.92 }}
-              transition={{ duration: BLEED_REDIRECT_DELAY_MS / 1000, ease: "easeIn" }}
+              transition={{ duration: 2.5, ease: "easeIn" }}
             />
             <motion.p
               className="relative font-display text-xl sm:text-2xl text-white text-center max-w-md leading-snug"

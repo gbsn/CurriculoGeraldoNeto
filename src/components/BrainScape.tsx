@@ -17,15 +17,17 @@ type Ray = {
 };
 
 // Raios entrando por cima, esquerda e direita — como ideias entrando na cabeça.
-// hotspotTop/height deslocados pra baixo pra não brigar com o painel do título.
+// hotspotTop calculado sobre um container de 150vh (ver min-h-[150vh] em
+// sobre/page.tsx) — todos os pontos ficam abaixo do painel do título,
+// mesmo aceitando cortar mais o cérebro visível na primeira tela.
 const RAYS: Ray[] = [
-  { top: "-15%", left: "8%", width: "140px", height: "92%", rotate: 18, hotspotTop: "40%", hotspotLeft: "20%" },
-  { top: "-15%", left: "38%", width: "110px", height: "97%", rotate: -6, hotspotTop: "34%", hotspotLeft: "42%" },
-  { top: "-15%", left: "68%", width: "120px", height: "92%", rotate: -16, hotspotTop: "42%", hotspotLeft: "66%" },
-  { top: "10%", left: "-15%", width: "100px", height: "107%", rotate: 65, hotspotTop: "60%", hotspotLeft: "16%" },
-  { top: "5%", left: "92%", width: "100px", height: "107%", rotate: -65, hotspotTop: "57%", hotspotLeft: "82%" },
-  { top: "40%", left: "-12%", width: "90px", height: "97%", rotate: 72, hotspotTop: "80%", hotspotLeft: "28%" },
-  { top: "35%", left: "96%", width: "90px", height: "97%", rotate: -72, hotspotTop: "84%", hotspotLeft: "74%" },
+  { top: "-15%", left: "8%", width: "140px", height: "83%", rotate: 18, hotspotTop: "58%", hotspotLeft: "20%" },
+  { top: "-15%", left: "38%", width: "110px", height: "89%", rotate: -6, hotspotTop: "64%", hotspotLeft: "42%" },
+  { top: "-15%", left: "68%", width: "120px", height: "83%", rotate: -16, hotspotTop: "58%", hotspotLeft: "66%" },
+  { top: "10%", left: "-15%", width: "100px", height: "95%", rotate: 65, hotspotTop: "70%", hotspotLeft: "16%" },
+  { top: "5%", left: "92%", width: "100px", height: "100%", rotate: -65, hotspotTop: "70%", hotspotLeft: "82%" },
+  { top: "40%", left: "-12%", width: "90px", height: "82%", rotate: 72, hotspotTop: "82%", hotspotLeft: "28%" },
+  { top: "35%", left: "96%", width: "90px", height: "86%", rotate: -72, hotspotTop: "86%", hotspotLeft: "74%" },
 ];
 
 // Cores neon pastel, uma por tema, seguindo a ordem do arco-íris.
