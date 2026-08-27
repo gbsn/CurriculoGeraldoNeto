@@ -22,7 +22,7 @@ type Copy = {
 const STORAGE_KEY = "sobre-session-gate";
 const DURATION_MS = 3 * 60 * 1000;
 const PUNISH_DURATION_MS = 3 * 60 * 1000;
-const BLEED_REDIRECT_DELAY_MS = 25000;
+const BLEED_REDIRECT_DELAY_MS = 10000;
 
 function normalize(s: string) {
   return s
@@ -94,6 +94,7 @@ export function SessionGate({
   const [answer, setAnswer] = useState("");
   const [wrong, setWrong] = useState(false);
   const [flash, setFlash] = useState(false);
+  const [countdownNumber, setCountdownNumber] = useState<number | null>(null);
   const expiryRef = useRef(0);
   const punishExpiryRef = useRef(0);
   const [mounted, setMounted] = useState(false);
@@ -193,6 +194,9 @@ export function SessionGate({
     } else if (status === "locked-retry") {
       // Segundo erro: tela sangra, expulsa, castigo de 3 minutos
       setStatus("bleeding");
+      window.setTimeout(() => setCountdownNumber(3), BLEED_REDIRECT_DELAY_MS - 3000);
+      window.setTimeout(() => setCountdownNumber(2), BLEED_REDIRECT_DELAY_MS - 2000);
+      window.setTimeout(() => setCountdownNumber(1), BLEED_REDIRECT_DELAY_MS - 1000);
       window.setTimeout(() => {
         setPunishment(PUNISH_DURATION_MS);
         router.push("/");
@@ -259,6 +263,22 @@ export function SessionGate({
             >
               {copy.bleedMessage}
             </motion.p>
+
+            <AnimatePresence mode="wait">
+              {countdownNumber !== null && (
+                <motion.p
+                  key={countdownNumber}
+                  className="absolute font-display text-white"
+                  style={{ fontSize: "min(30vw, 14rem)" }}
+                  initial={{ opacity: 0, scale: 0.4 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.3 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 18 }}
+                >
+                  {countdownNumber}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
