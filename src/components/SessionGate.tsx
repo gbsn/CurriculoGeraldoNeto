@@ -29,7 +29,7 @@ function normalize(s: string) {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .replace(/[^a-z\s]/g, "")
+    .replace(/[^\p{L}\p{N}\s]/gu, "")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -55,9 +55,12 @@ function pickRandom(list: Question[]): Question {
 
 function checkAnswer(answer: string, question: Question) {
   const normAnswer = normalize(answer);
-  return question.answers.some(
-    (a) => normalize(a) === normAnswer || (normAnswer.length > 0 && normAnswer.includes(normalize(a)))
-  );
+  if (normAnswer.length === 0) return false;
+  return question.answers.some((a) => {
+    const normA = normalize(a);
+    if (normA.length === 0) return false;
+    return normA === normAnswer || normAnswer.includes(normA);
+  });
 }
 
 type Status = "loading" | "active" | "locked" | "locked-retry" | "bleeding" | "unlocking" | "punished";
@@ -345,9 +348,7 @@ export function SessionGate({
                   <input
                     autoFocus
                     value={answer}
-                    onChange={(e) =>
-                      setAnswer(e.target.value.replace(/[^a-zA-ZÀ-ÿ0-9\s]/g, ""))
-                    }
+                    onChange={(e) => setAnswer(e.target.value.replace(/[^\p{L}\p{N}\s]/gu, ""))}
                     placeholder={copy.placeholder}
                     className="w-full rounded-lg border hairline bg-paper-raised/50 px-3 py-2 outline-none focus-visible:border-horizonte font-body text-sm text-ink"
                   />
