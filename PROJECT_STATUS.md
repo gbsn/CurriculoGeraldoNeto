@@ -110,6 +110,11 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **f1b9501** — feat: escalada do mini-jogo (SessionGate) — erro 1: névoa
+  tempestuosa/escura + pergunta mais fácil + flash; erro 2: tela sangra
+  vermelho + aviso + expulsão + castigo de 3min (nav "Sobre mim" some,
+  novo `src/lib/sobreLock.ts` compartilhado com a Topbar); fim do
+  castigo volta ao estado normal.
 - **0ddf618** — fix: vídeo volta pra object-cover (object-contain causava
   letterbox preto gigante no mobile, vídeo é landscape); painel do
   título compactado no mobile (ocupava espaço demais, escondia a cena).
