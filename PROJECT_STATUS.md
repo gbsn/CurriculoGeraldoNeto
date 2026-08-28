@@ -62,12 +62,28 @@ deliberadamente removidas e foram pro Curriculum Vitae.
 
 ## Universo: Curriculum Vitae — `/experiencias` (nome no menu, rota não trocada)
 
-**Status:** conteúdo em modo "anotação bruta" — 7 experiências que não
-cabem em Gestão/Tecnologia (Itautec, Oi Telecom PF, Oi Telecom PJ, ACOM,
-Cabo Telecom, TecnoTech, JMTweb), lista cronológica simples, sem
-storytelling nem glass pesado ainda. **Pendência conhecida:** redesenho
-narrativo mais forte, e possível troca de rota pra `/curriculo` — ambos
-combinados como "revisitar depois", ainda não feito.
+**Status:** storytelling pesado implementado — mecânica de "fita cassete +
+walkman". 7 experiências (Itautec, Oi Telecom PF, Oi Telecom PJ, ACOM,
+Cabo Telecom, TecnoTech, JMTweb), cada uma como **fita** (áudio) ou
+**ficha de papel** (só texto), definido em `IS_TAPE` no topo de
+`experiencias/page.tsx`: Itautec, ACOM e JMTweb são fitas; as outras 4
+são fichas. Clicar numa fita anima ela "voando" (via `layoutId`
+compartilhado do motion) pro Walkman, que fica fixo com um fio SVG
+saindo pro canto da tela (via portal, `Walkman.tsx`). Carretéis giram
+durante os ~12s de "reprodução" simulada. Fichas de papel abrem/fecham
+com clique (`PaperFicha.tsx`).
+
+**Pendência conhecida (bloqueante pro polimento final):** as fitas
+**não têm áudio de verdade ainda** — a narração (voz gravada do
+usuário, ou síntese) ainda não foi decidida. A mecânica já está pronta
+pra receber os arquivos de áudio quando existirem (só falta plugar
+`src` num elemento `<audio>` dentro de `Walkman.tsx`, hoje é só
+simulação de progresso por tempo). O usuário também disse que vai
+providenciar feitos acadêmicos pra completar essa página futuramente —
+quando vierem, decidir se vão virar fita ou ficha.
+
+Fonte de caligrafia adicionada: `Caveat` (Google Fonts), variável
+`--font-handwriting`, usada nos rótulos das fitas/fichas.
 
 ## Universo: Sobre mim — `/sobre`
 
@@ -115,6 +131,11 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **ad2fae2** — feat: Curriculum Vitae ganha o storytelling pesado
+  combinado — mecânica de fita cassete + walkman (3 fitas com carretel
+  girando, 4 fichas de papel clicáveis), fio do walkman via portal +
+  SVG até o canto da tela, animação de fita voando via layoutId
+  compartilhado do motion. Áudio ainda é simulado (sem gravação real).
 - **10b650d** — feat: Tecnologia abre com visual claro/editorial (igual
   Início) e transforma pro fundo matrix/IDE escuro na primeira rolagem
   (opacidade do CodeBackdrop amarrada ao scroll, 0→1 nos primeiros
