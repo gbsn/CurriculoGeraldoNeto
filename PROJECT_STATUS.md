@@ -48,6 +48,9 @@ QuasimoDOVS-Clock, NowApocalypse, moderaIA, ThePHPLogin, AllVueJs) com
 links reais do GitHub. Fundo exclusivo dessa página: `CodeBackdrop.tsx`
 — código sintaticamente colorido (VS Code Dark+) com deriva lenta +
 100 easter eggs sorteados (6 por carregamento, só em `lg:` pra cima).
+Página abre com visual claro (paper-texture global, igual Início) e o
+fundo matrix transforma/aparece na primeira rolagem, via opacidade
+amarrada ao scroll (`useScroll`/`useTransform` do motion).
 
 ## Universo: Gestão — `/gestao`
 
@@ -112,6 +115,10 @@ tentar voltar mostra névoa + pergunta sobre o site; acertar libera mais
 
 ## Changelog (mais recente primeiro)
 
+- **10b650d** — feat: Tecnologia abre com visual claro/editorial (igual
+  Início) e transforma pro fundo matrix/IDE escuro na primeira rolagem
+  (opacidade do CodeBackdrop amarrada ao scroll, 0→1 nos primeiros
+  ~480px rolados).
 - Sessão de trabalho na página Sobre encerrada por ora (mini-jogo e
   cena funcionando). Pendência anotada: revisar textos dos popups de
   tema (ver seção "Sobre mim" acima).
