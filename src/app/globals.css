@@ -16,6 +16,7 @@
   --font-display: var(--font-source-serif);
   --font-body: var(--font-inter);
   --font-mono: var(--font-plex-mono);
+  --font-handwriting: var(--font-caveat);
 }
 
 @theme inline {
@@ -29,6 +30,7 @@
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
+  --font-handwriting: var(--font-handwriting);
 }
 
 * {

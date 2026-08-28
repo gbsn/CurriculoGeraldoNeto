@@ -56,6 +56,7 @@ export interface Dictionary {
     headline: string;
     intro: string;
     draftNote: string;
+    walkmanEject: string;
     roles: {
       title: string;
       company: string;
@@ -218,12 +219,13 @@ export const translations: Record<Locale, Dictionary> = {
       statYears: "anos na Teleperformance, do operacional à coordenação",
     },
     experienciasPage: {
-      eyebrow: "Edição pessoal · Curriculum Vitae · em construção",
+      eyebrow: "Edição pessoal · Curriculum Vitae",
       headline: "Curriculum Vitae",
       intro:
-        "Tudo que não coube em nenhum outro tema, reunido aqui em ordem cronológica.",
+        "Cada capítulo é uma fita ou uma ficha. Clique numa fita pra ouvir, numa ficha pra ler.",
       draftNote:
-        "Nota: essa seção ainda vai passar por um redesenho de storytelling mais pesado. Por ora, é só o registro bruto das experiências.",
+        "As fitas ainda estão sem áudio gravado — os carretéis giram, mas o som chega em breve.",
+      walkmanEject: "Ejetar",
       roles: [
         {
           title: "Técnico e agente de garantia",
@@ -579,12 +581,13 @@ export const translations: Record<Locale, Dictionary> = {
       statYears: "years at Teleperformance, from the floor to coordination",
     },
     experienciasPage: {
-      eyebrow: "Personal edition · Curriculum Vitae · under construction",
+      eyebrow: "Personal edition · Curriculum Vitae",
       headline: "Curriculum Vitae",
       intro:
-        "Everything that didn't fit into another theme, gathered here in chronological order.",
+        "Each chapter is a tape or a paper file. Click a tape to listen, a paper to read.",
       draftNote:
-        "Note: this section will still go through a heavier storytelling redesign. For now, it's just the raw record of experiences.",
+        "The tapes don't have recorded audio yet — the reels spin, but the sound is coming soon.",
+      walkmanEject: "Eject",
       roles: [
         {
           title: "Warranty Technician & Agent",
@@ -937,11 +940,11 @@ export const translations: Record<Locale, Dictionary> = {
       statYears: "在Teleperformance从一线到统筹协调的从业年限",
     },
     experienciasPage: {
-      eyebrow: "个人版 · 个人履历 · 建设中",
+      eyebrow: "个人版 · 个人履历",
       headline: "个人履历",
-      intro: "所有不属于其他主题的经历，按时间顺序汇总于此。",
-      draftNote:
-        "备注：这部分最终会经过更重的叙事化重新设计。目前，这里只是经历的原始记录。",
+      intro: "每一章都是一盘磁带或一份档案。点击磁带聆听，点击档案阅读。",
+      draftNote: "磁带还没有录制音频 —— 卷轴会转动，但声音即将到来。",
+      walkmanEject: "退出",
       roles: [
         {
           title: "保修技术员/代理",
