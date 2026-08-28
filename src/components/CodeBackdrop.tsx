@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 type Slot = { top: string; side: "left" | "right"; rotate: number; color: string };
 
@@ -315,11 +315,14 @@ function CodeColumn({ reverse = false }: { reverse?: boolean }) {
  * tela.
  */
 export function CodeBackdrop() {
+  const { scrollY } = useScroll();
+  const bgOpacity = useTransform(scrollY, [0, 480], [0, 1]);
+
   return (
-    <div
+    <motion.div
       aria-hidden
       className="absolute inset-0 -z-10 overflow-hidden"
-      style={{ backgroundColor: "#1b1b1b" }}
+      style={{ backgroundColor: "#1b1b1b", opacity: bgOpacity }}
     >
       <div className="absolute inset-0 opacity-[0.38] blur-[1px] grid grid-cols-2 sm:grid-cols-3 gap-8 px-6 py-10">
         <CodeColumn />
@@ -337,6 +340,6 @@ export function CodeBackdrop() {
 
       {/* Easter eggs — nítidos, sem blur, saltam ao entrar na viewport */}
       <EasterEggs />
-    </div>
+    </motion.div>
   );
 }
